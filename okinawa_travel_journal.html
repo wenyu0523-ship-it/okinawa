@@ -1,0 +1,2762 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>OKINAWA TRAVEL JOURNAL｜2026.11.28 — 12.02 跟寶寶一週年の小旅行</title>
+  
+  <!-- Google Fonts: Noto Serif TC, Cormorant Garamond & Noto Sans TC -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400&family=Noto+Sans+TC:wght@300;400;500;600&family=Noto+Serif+TC:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            cream: {
+              50: '#FDFCFA',
+              100: '#FAF8F5', // 奶油白主背景
+              200: '#F2ECE4', // 燕麥米色區塊
+              300: '#E6DDD2', // 細緻邊框
+            },
+            cblue: {
+              100: '#EBF1F3',
+              200: '#D9E5E9', // 淡奶油藍
+              400: '#9DB8C2', // 奶油藍點綴
+              600: '#6E8E99', // 深海鹽藍
+            },
+            coffee: {
+              300: '#C8B4A4',
+              400: '#B89F8D', // 淺咖啡
+              600: '#7D6555',
+              800: '#4A3B32', // 深咖啡標題
+              900: '#3A322D', // 炭灰內文
+            }
+          },
+          fontFamily: {
+            serif: ['"Cormorant Garamond"', '"Noto Serif TC"', 'serif'],
+            sans: ['"Noto Sans TC"', 'sans-serif'],
+          },
+          boxShadow: {
+            'journal': '0 4px 20px -2px rgba(74, 59, 50, 0.05)',
+            'journal-lg': '0 10px 30px -5px rgba(74, 59, 50, 0.08)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      background-color: #FAF8F5;
+      color: #3A322D;
+      font-family: 'Noto Sans TC', sans-serif;
+      -webkit-tap-highlight-color: transparent;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, .font-journal {
+      font-family: 'Cormorant Garamond', 'Noto Serif TC', serif;
+    }
+
+    /* 手帳細緻質感紋理 */
+    .paper-texture {
+      background-image: radial-gradient(#E4DBD0 0.65px, transparent 0.65px);
+      background-size: 20px 20px;
+    }
+
+    /* 隱藏捲軸但保留滑動功能 */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    /* 柔和轉場 */
+    .fade-in {
+      animation: fadeIn 0.35s ease-out forwards;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* 瀑布流照片牆 */
+    .masonry-grid {
+      column-count: 2;
+      column-gap: 1rem;
+    }
+    @media (min-width: 768px) {
+      .masonry-grid {
+        column-count: 3;
+        column-gap: 1.25rem;
+      }
+    }
+    .masonry-item {
+      break-inside: avoid;
+      margin-bottom: 1rem;
+    }
+
+    /* 編輯模式虛線框提示 */
+    .edit-highlight {
+      border: 1.5px dashed #B89F8D !important;
+      background-color: #FDFCFA !important;
+    }
+  </style>
+</head>
+<body class="pb-24 md:pb-12 selection:bg-cblue-200 selection:text-coffee-800">
+
+  <!-- 頂部導覽列 (Desktop & Mobile Header) -->
+  <header class="sticky top-0 z-40 bg-cream-100/90 backdrop-blur-md border-b border-cream-300">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <!-- Brand -->
+      <button onclick="switchTab('home')" class="flex items-center gap-2.5 text-left group">
+        <div class="w-8 h-8 rounded-full bg-cblue-200 flex items-center justify-center text-coffee-800 border border-cblue-400/40 group-hover:scale-105 transition">
+          <i data-lucide="compass" class="w-4 h-4"></i>
+        </div>
+        <div>
+          <div class="font-serif font-bold tracking-wider text-base sm:text-lg text-coffee-800 leading-none">OKINAWA JOURNAL</div>
+          <div class="text-[11px] text-coffee-600 tracking-widest mt-0.5">2026.11.28 — 12.02</div>
+        </div>
+      </button>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden lg:flex items-center gap-1 text-sm">
+        <button onclick="switchTab('home')" data-nav="home" class="nav-btn px-3 py-1.5 rounded-full transition">首頁總覽</button>
+        <button onclick="switchTab('itinerary')" data-nav="itinerary" class="nav-btn px-3 py-1.5 rounded-full transition">每日行程</button>
+        <button onclick="switchTab('maps')" data-nav="maps" class="nav-btn px-3 py-1.5 rounded-full transition">地圖自駕</button>
+        <button onclick="switchTab('dining')" data-nav="dining" class="nav-btn px-3 py-1.5 rounded-full transition">餐廳美食</button>
+        <button onclick="switchTab('budget')" data-nav="budget" class="nav-btn px-3 py-1.5 rounded-full transition">預算記帳</button>
+        <button onclick="switchTab('photos')" data-nav="photos" class="nav-btn px-3 py-1.5 rounded-full transition">旅行相簿</button>
+        <button onclick="switchTab('packing')" data-nav="packing" class="nav-btn px-3 py-1.5 rounded-full transition">行李清單</button>
+        <button onclick="switchTab('shopping')" data-nav="shopping" class="nav-btn px-3 py-1.5 rounded-full transition">購物清單</button>
+        <button onclick="switchTab('weather')" data-nav="weather" class="nav-btn px-3 py-1.5 rounded-full transition">天氣查詢</button>
+      </nav>
+
+      <!-- Right Controls: Edit Mode & Backup -->
+      <div class="flex items-center gap-2">
+        <button id="editModeBtn" onclick="toggleEditMode()" class="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium border border-coffee-400/50 bg-cream-200/70 text-coffee-800 hover:bg-coffee-800 hover:text-cream-100 transition">
+          <i data-lucide="edit-3" class="w-3.5 h-3.5"></i>
+          <span id="editModeLabel">編輯模式</span>
+        </button>
+        <button onclick="openBackupModal()" title="匯出/匯入與分享給寶寶" class="p-2 rounded-full border border-cream-300 bg-white text-coffee-800 hover:bg-cream-200 transition">
+          <i data-lucide="share-2" class="w-4 h-4"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Edit Mode Status Banner -->
+  <div id="editBanner" class="hidden bg-coffee-800 text-cream-100 text-xs py-2 px-4 text-center sticky top-16 z-30 shadow-sm">
+    <div class="max-w-5xl mx-auto flex flex-wrap items-center justify-center gap-3">
+      <span class="flex items-center gap-1.5"><i data-lucide="sparkles" class="w-3.5 h-3.5 text-cblue-200"></i> <strong>編輯模式已開啟</strong>：可直接點擊各區塊的「編輯 / 新增 / 刪除」按鈕修改內容，所有變更自動儲存於瀏覽器。</span>
+      <button onclick="toggleEditMode()" class="underline text-cblue-200 hover:text-white">完成編輯</button>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="fixed top-20 right-4 z-50 transform translate-x-full opacity-0 transition-all duration-300 pointer-events-none">
+    <div class="bg-coffee-800 text-cream-100 px-4 py-2.5 rounded-2xl shadow-journal-lg text-xs flex items-center gap-2 border border-coffee-600">
+      <i data-lucide="check-circle-2" class="w-4 h-4 text-cblue-200"></i>
+      <span id="toastMsg">已儲存變更</span>
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT CONTAINER -->
+  <main id="appContainer" class="max-w-5xl mx-auto px-4 sm:px-6 pt-6 space-y-8">
+    <!-- Dynamic Tab Content Rendered via JS -->
+  </main>
+
+  <!-- MOBILE BOTTOM NAVIGATION BAR -->
+  <nav class="lg:hidden fixed bottom-0 inset-x-0 z-40 bg-cream-100/95 backdrop-blur-md border-t border-cream-300 px-1 py-1.5">
+    <div class="flex items-center justify-around">
+      <button onclick="switchTab('home')" data-mnav="home" class="mnav-btn flex flex-col items-center py-1 px-2 rounded-xl text-[10px] gap-0.5">
+        <i data-lucide="home" class="w-4 h-4"></i>
+        <span>首頁</span>
+      </button>
+      <button onclick="switchTab('itinerary')" data-mnav="itinerary" class="mnav-btn flex flex-col items-center py-1 px-2 rounded-xl text-[10px] gap-0.5">
+        <i data-lucide="calendar-days" class="w-4 h-4"></i>
+        <span>行程</span>
+      </button>
+      <button onclick="switchTab('maps')" data-mnav="maps" class="mnav-btn flex flex-col items-center py-1 px-2 rounded-xl text-[10px] gap-0.5">
+        <i data-lucide="map-pin" class="w-4 h-4"></i>
+        <span>自駕地圖</span>
+      </button>
+      <button onclick="switchTab('dining')" data-mnav="dining" class="mnav-btn flex flex-col items-center py-1 px-2 rounded-xl text-[10px] gap-0.5">
+        <i data-lucide="utensils" class="w-4 h-4"></i>
+        <span>美食</span>
+      </button>
+      <button onclick="switchTab('budget')" data-mnav="budget" class="mnav-btn flex flex-col items-center py-1 px-2 rounded-xl text-[10px] gap-0.5">
+        <i data-lucide="wallet" class="w-4 h-4"></i>
+        <span>預算</span>
+      </button>
+      <button onclick="toggleMoreMenu()" id="moreMenuBtn" class="flex flex-col items-center py-1 px-2 rounded-xl text-[10px] gap-0.5 text-coffee-600">
+        <i data-lucide="grid" class="w-4 h-4"></i>
+        <span>更多</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile "More" Drawer -->
+  <div id="moreDrawer" class="hidden fixed inset-0 z-50 bg-coffee-900/40 backdrop-blur-xs lg:hidden" onclick="toggleMoreMenu()">
+    <div class="absolute bottom-16 inset-x-4 bg-cream-100 rounded-3xl p-5 border border-cream-300 shadow-journal-lg" onclick="event.stopPropagation()">
+      <div class="flex items-center justify-between mb-4">
+        <span class="font-serif font-semibold text-coffee-800">更多手帳功能</span>
+        <button onclick="toggleMoreMenu()" class="p-1 text-coffee-600"><i data-lucide="x" class="w-4 h-4"></i></button>
+      </div>
+      <div class="grid grid-cols-2 gap-3 text-sm">
+        <button onclick="switchTab('photos'); toggleMoreMenu();" class="flex items-center gap-3 p-3.5 rounded-2xl bg-cream-200/70 hover:bg-cblue-100 text-coffee-800">
+          <i data-lucide="camera" class="w-4 h-4 text-cblue-600"></i>
+          <span>旅行照片牆</span>
+        </button>
+        <button onclick="switchTab('packing'); toggleMoreMenu();" class="flex items-center gap-3 p-3.5 rounded-2xl bg-cream-200/70 hover:bg-cblue-100 text-coffee-800">
+          <i data-lucide="check-square" class="w-4 h-4 text-cblue-600"></i>
+          <span>行李與待辦</span>
+        </button>
+        <button onclick="switchTab('shopping'); toggleMoreMenu();" class="flex items-center gap-3 p-3.5 rounded-2xl bg-cream-200/70 hover:bg-cblue-100 text-coffee-800">
+          <i data-lucide="shopping-bag" class="w-4 h-4 text-cblue-600"></i>
+          <span>購物清單</span>
+        </button>
+        <button onclick="switchTab('weather'); toggleMoreMenu();" class="flex items-center gap-3 p-3.5 rounded-2xl bg-cream-200/70 hover:bg-cblue-100 text-coffee-800">
+          <i data-lucide="cloud-sun" class="w-4 h-4 text-cblue-600"></i>
+          <span>沖繩天氣</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- UNIVERSAL MODAL (Edit Forms, Lightbox, Share/Backup) -->
+  <div id="modalBackdrop" class="hidden fixed inset-0 z-50 bg-coffee-900/50 backdrop-blur-xs flex items-center justify-center p-4 overflow-y-auto" onclick="closeModal()">
+    <div id="modalBox" class="bg-cream-100 border border-cream-300 rounded-3xl max-w-lg w-full p-6 shadow-journal-lg my-8 max-h-[88vh] overflow-y-auto" onclick="event.stopPropagation()">
+      <!-- Injected dynamically -->
+    </div>
+  </div>
+
+  <script>
+    // =========================================================================
+    // 1. INITIAL DATA (Strictly derived from User's PDF Presentation)
+    // =========================================================================
+    const STORAGE_KEY = 'okinawa_journal_2026_v1';
+
+    const DEFAULT_DATA = {
+      meta: {
+        title: 'OKINAWA TRAVEL JOURNAL',
+        subtitle: '跟寶寶一週年の小旅行 🫶🏻',
+        dates: '2026.11.28 — 2026.12.02',
+        intro: '五天四夜的沖繩初冬微風之旅。前兩日漫步那霸市區與單軌電車，中間兩日沿著海岸線自駕向北，探訪美麗海水族館、古宇利藍海與讀谷懸崖咖啡；最後回到壺屋陶器街與國際通，把沖繩的陽光與黑糖香氣打包帶回家。',
+        heroImage: 'https://images.unsplash.com/photo-1542051841857-5f90071e7989?auto=format&fit=crop&w=1600&q=80',
+        hotelName: 'Nest Hotel Naha Nishi (那霸西町巢穴飯店)',
+        hotelAddress: '1-20-19 Nishi, Naha, Okinawa 900-0036',
+        hotelCost: 'NT$ 8,050（4晚・已刷卡）',
+        flightOut: '11/28 (六) 18:20 桃園 T1 ➔ 20:40 那霸 OKA｜虎航 IT232（含 15kg 托運）',
+        flightIn: '12/02 (三) 21:30 那霸 OKA ➔ 22:10 桃園 T1｜虎航 IT233（含 25kg 托運）',
+        carInfo: 'ORIX Rent-a-Car 那霸西町店｜11/29 08:00 取車 — 11/30 19:00 還車｜¥16,170（現場支付）'
+      },
+      // PDF 核對與注意事項
+      notices: [
+        {
+          id: 'n1',
+          type: 'conflict',
+          title: 'Day 5 星期標示核對',
+          detail: 'PDF 第 7 頁寫「Day5 12/2（二）」，經核對 2026 年月曆，12/1 為星期二、12/2 實際為「星期三」，網站已同步標註提醒您留意返程時間。'
+        },
+        {
+          id: 'n2',
+          type: 'conflict',
+          title: 'Day 2 美國村日落與居酒屋動線確認',
+          detail: '11月底沖繩日落約在 17:38，18:00 抵達北谷美國村時天色已暗，適合欣賞聖誕燈飾與海邊夜景；21:30 安排那霸市區「Kushiyaki Can（可略）」，從美國村開回那霸約 40 分鐘，請務必確認駕駛不飲酒。'
+        },
+        {
+          id: 'n3',
+          type: 'info',
+          title: 'Day 2 古宇利海洋塔營業時間確認',
+          detail: 'PDF 標註 10:00–18:00（冬季最終入園通常為 17:30），15:00 抵達時間充裕，出發前建議再確認官網公告。'
+        },
+        {
+          id: 'n4',
+          type: 'info',
+          title: '入境、退稅與停車必備提醒',
+          detail: '① 入境最晚 6 小時前填寫 Visit Japan Web。② 購物先付含稅價，手機登入 J-TaxRefund 登記，離境當天至機場 KIOSK 自助機辦理。③ 找車位 App 需到日本境內才能下載，盡量避開 Times 停車場（費率較高）。'
+        }
+      ],
+      days: [
+        {
+          day: 1,
+          date: '11/28 (六)',
+          theme: '啟程・抵達那霸初夜',
+          transportSummary: '桃園機場 ➔ 那霸機場 ➔ 單軌電車 Yui Rail',
+          hotel: 'Nest Hotel Naha Nishi',
+          dayNote: '抵達那霸已近晚上九點，單軌電車「那霸機場站 ➔ 旭橋站」約 20 分鐘，出站步行即可抵達飯店 Check-in。',
+          items: [
+            {
+              id: 'd1-1',
+              time: '18:20',
+              title: '桃園國際機場 T1 ➔ 那霸機場 OKA',
+              category: '航班交通',
+              address: 'Naha Airport, 150 Kagamizu, Naha, Okinawa',
+              stay: '飛行約 1 小時 20 分（20:40 抵達）',
+              transit: '請提前 2.5 小時抵達桃園機場第一航廈',
+              description: '搭乘台灣虎航 IT232 班機前往沖繩（含 15 公斤托運行李）。抵達後完成入境審查並領取行李。',
+              foodOrShop: '入境最晚 6 小時前務必完成 Visit Japan Web 填寫並截圖 QR Code。',
+              image: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=900&q=80',
+              mapQuery: 'Naha Airport'
+            },
+            {
+              id: 'd1-2',
+              time: '21:15',
+              title: 'Nest Hotel Naha Nishi 飯店 Check-in',
+              category: '住宿',
+              address: '1-20-19 Nishi, Naha, Okinawa 900-0036',
+              stay: '連住 4 晚（11/28–12/02）',
+              transit: '單軌電車：那霸機場站 ➔ 旭橋站（約 20 分鐘）後步行',
+              description: '位於那霸西町的質感商務旅店，鄰近旭橋站與明天早上的 ORIX 租車營業所，步行僅需 2 分鐘，地理位置極佳。',
+              foodOrShop: '住宿費用 NT$ 8,050（已刷卡完成）。',
+              image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=900&q=80',
+              mapQuery: 'Nest Hotel Naha Nishi'
+            },
+            {
+              id: 'd1-3',
+              time: '22:00',
+              title: '晚餐：一蘭拉麵 那霸國際通店',
+              category: '美食',
+              address: '1-2-24 Makishi, Naha, Okinawa 900-0013',
+              stay: '預計停留 1 小時',
+              transit: '從飯店步行、搭公車或單軌電車至縣廳前/美榮橋站',
+              description: '抵達沖繩的第一頓宵夜暖胃首選，濃郁豚骨湯頭搭配特製赤紅秘製醬汁，24小時營業（或深夜營業）不用擔心太晚沒東西吃。',
+              foodOrShop: '推薦：天然豚骨拉麵＋半熟鹽味蛋＋加麵。',
+              image: 'https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=900&q=80',
+              mapQuery: 'Ichiran Ramen Naha Kokusai Street'
+            }
+          ]
+        },
+        {
+          day: 2,
+          date: '11/29 (日)',
+          theme: '向北自駕・美麗海水族館與古宇利藍海',
+          transportSummary: '全日自駕（那霸 ➔ 本部 ➔ 今歸仁 ➔ 古宇利 ➔ 名護 ➔ 北谷 ➔ 那霸）',
+          hotel: 'Nest Hotel Naha Nishi',
+          dayNote: '本日車程較長，8:00 準時取車出發！沖繩高速公路速限 80km/h，11月底約 17:38 日落，傍晚行車請開啟頭燈。',
+          items: [
+            {
+              id: 'd2-1',
+              time: '08:00',
+              title: 'ORIX Rent-a-Car 那霸西町店取車',
+              category: '自駕租車',
+              address: '1-19-8 Nishi, Naha, Okinawa 900-0036',
+              stay: '辦理手續約 20–30 分鐘',
+              transit: '從 Nest Hotel Naha Nishi 步行約 2 分鐘',
+              description: '現場支付租車費用 ¥16,170（可刷卡或付現）。取車時請與工作人員仔細核對車身外觀刮痕、確認油種（通常為 Regular 紅色油槍）並設定導航。',
+              foodOrShop: '必備證件：護照正本、台灣駕照正本、駕照日文譯本。',
+              image: 'https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=900&q=80',
+              mapQuery: 'ORIX Rent-a-car Naha Nishi-machi'
+            },
+            {
+              id: 'd2-2',
+              time: '10:00',
+              title: '沖繩美麗海水族館 (Okinawa Churaumi Aquarium)',
+              category: '景點',
+              address: '424 Ishikawa, Motobu, Kunigami District, Okinawa',
+              stay: '預計停留 3 小時',
+              transit: '從那霸出發車程約 1.5–2 小時（建議停 P7 立體停車場）',
+              description: '世界級巨型水槽「黑潮之海」近距離欣賞鯨鯊與鬼蝠魟優雅悠游。記得把握 11:30 的戶外海豚劇場表演！',
+              foodOrShop: '必看：11:30 海豚秀｜禮品店外販賣機必買：烤地瓜 ¥600、沖繩限定氣泡水 ¥200。',
+              image: 'https://images.unsplash.com/photo-1582967788606-a171c1080cb0?auto=format&fit=crop&w=900&q=80',
+              mapQuery: 'Okinawa Churaumi Aquarium'
+            },
+            {
+              id: 'd2-3',
+              time: '13:30',
+              title: '午餐：沖繩麵 今歸仁之森',
+              category: '美食',
+              address: 'Nakijin, Kunigami District, Okinawa',
+              stay: '預計停留 1 小時（營業時間 11:30–16:00）',
+              transit: '從美麗海水族館開車約 15 分鐘',
+              description: '隱身於今歸仁綠意中的道地沖繩麵小店，湯頭清甜順口、三層肉燉煮軟嫩入味。',
+              foodOrShop: '推薦：招牌軟骨沖繩麵、炊飯。',
+              image: 'https://images.unsplash.com/photo-1555126634-323283e090fa?auto=format&fit=crop&w=900&q=80',
+              mapQuery: '沖繩麵 今歸仁之森 Nakijin'
+            },
+            {
+              id: 'd2-4',
+              time: '14:40',
+              title: 'Shinmay Coffee (The Sinmay) 黑糖奶茶',
+              category: '咖啡甜點',
+              address: 'Nakijin, Kunigami District, Okinawa',
+              stay: '外帶/小憩（營業時間 10:00–16:30）',
+              transit: '從今歸仁之森開車約 10 分鐘',
+              description: '今歸仁人氣飲品小店，使用沖繩香醇黑糖熬煮的珍珠鮮奶茶，濃郁不膩口。',
+              foodOrShop: '推薦：Brown sugar bubble milk tea ¥700–850（份量十足，可以兩個人一起喝一杯！）。',
+              image: 'https://images.unsplash.com/photo-1558857563-b371033873b8?auto=format&fit=crop&w=900&q=80',
+              mapQuery: 'The Sinmay Nakijin Okinawa'
+            },
+            {
+              id: 'd2-5',
+              time: '15:00',
+              title: '古宇利海洋塔 (Kouri Ocean Tower)',
+              category: '景點',
+              address: '538 Kouri, Nakijin, Kunigami District, Okinawa',
+              stay: '預計停留 1 小時（營業時間 10:00–18:00）',
+              transit: '開車跨過絕美古宇利大橋，車程約 20 分鐘',
+              description: '搭乘可愛的無人駕駛自動遊園車緩緩登上展望塔（約 8 分鐘），沿途飽覽果凍漸層色的「古宇利藍」海景與大橋全景。',
+              foodOrShop: '體驗：無人駕駛自動車約 8 分鐘、頂樓幸福鐘合照。',
+              image: 'https://images.unsplash.com/photo-1590523277543-a94d2e4eb00b?auto=format&fit=crop&w=900&q=80',
+              mapQuery: 'Kouri Ocean Tower'
+            },
+            {
+              id: 'd2-6',
+              time: '16:30',
+              title: '星巴克 名護21世紀之森公園あけみおてらす店',
+              category: '咖啡甜點',
+              address: '2-1-1 Miyazato, Nago, Okinawa',
+              stay: '預計停留 1 小時（附設免費停車位）',
+              transit: '從古宇利島開車南下約 35 分鐘',
+              description: '結合名護海岸公園與沖繩傳統工藝的特色門市！店內處處可見風獅爺與琉球元素，還能免費借用草蓆在戶外草地看海吹風。',
+              foodOrShop: '推薦：焙茶經典拿鐵、沖繩限定黑糖鮮奶茶。',
+              image: 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=900&q=80',
+              mapQuery: 'Starbucks Nago 21st Century Forest Park'
+            },
+            {
+              id: 'd2-7',
+              time: '18:00',
+              title: '美國村 & 北谷公園日落海灘',
+              category: '景點・美食',
+              address: 'Mihama, Chatan, Nakagami District, Okinawa',
+              stay: '晚餐與夜間散步約 2.5 小時',
+              transit: '從名護沿西海岸南下約 1 小時',
+              description: '充滿美式異國風情的海濱小鎮，11月底夜晚點亮浪漫燈飾。沿著北谷日落步道散步吹海風，品嚐超人氣塔可飯與冰淇淋。',
+              foodOrShop: '美食推薦：Taco Rice Cafe Kijimuna 塔可飯、Blue Seal 冰淇淋。',
+              image: 'https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=900&q=80',
+              mapQuery: 'American Village Chatan Okinawa'
+            },
+            {
+              id: 'd2-8',
+              time: '21:30',
+              title: '居酒屋 Kushiyaki Can（可略・視體力彈性調整）',
+              category: '宵夜',
+              address: 'Naha, Okinawa',
+              stay: '彈性安排',
+              transit: '從美國村返回那霸市區約 40 分鐘',
+              description: '若回到那霸市區還有體力，可前往品嚐日式串燒；若今日自駕較累亦可直接回飯店休息。（提醒：日本酒駕罰則極重，駕駛嚴禁飲酒）',
+              foodOrShop: '備註：PDF 標註「可略」，建議依當日精神狀態彈性決定。',
+              image: 'https://images.unsplash.com/photo-1554797589-7241bb691973?auto=format&fit=crop&w=900&q=80',
+              mapQuery: 'Kushiyaki Can Naha Okinawa'
+            }
+          ]
+        },
+        {
+          day: 3,
+          date: '11/30 (一)',
+          theme: '琉球文化・懸崖海景咖啡與瀨長島夕陽',
+          transportSummary: '自駕（那霸 ➔ 恩納 ➔ 讀谷 ➔ 豐見城瀨長島 ➔ 19:00 還車）',
+          hotel: 'Nest Hotel Naha Nishi',
+          dayNote: '19:00 準時還車！還車前請在附近加油站加滿 Regular 汽油並保留收據供店員確認。',
+          items: [
+            {
+              id: 'd3-1',
+              time: '10:00',
+              title: '沖繩琉球村 (Ryukyu Mura)',
+              category: '景點',
+              address: '1130 Yamada, Onna, Kunigami District, Okinawa',
+              stay: '預計停留 2 小時',
+              transit: '從那霸市區出發車程約 1 小時',
+              description: '完整保存沖繩百年紅瓦古民家的文化主題村，可以欣賞傳統三線琴演奏、道地 Eisa 太鼓舞表演，感受純樸的琉球王國風情。',
+              foodOrShop: '推薦：觀看傳統太鼓舞表演、品嚐現炸沙翁（沖繩開口笑）。',
+              image: 'https://images.unsplash.com/photo-1528360983277-13d401cdc186?auto=format&fit=crop&w=900&q=80',
+              mapQuery: 'Ryukyu Mura Onna Okinawa'
+            },
+            {
+              id: 'd3-2',
+              time: '12:30',
+              title: 'BANTA CAFE by 星野リゾート',
+              category: '咖啡甜點',
+              address: '560 Gima, Yomitan, Nakagami District, Okinawa',
+              stay: '預計停留 1.5 小時',
+              transit: '從琉球村開車前往讀谷村約 15 分鐘',
+              description: '星野集團打造的日本最大規模海景咖啡廳！依傍珊瑚礁懸崖而建，坐在榻榻米海邊露台或塌塌米涼亭，眼前就是一望無際的碧藍大海。',
+              foodOrShop: '推薦：泡泡果凍蘇打飲、厚切豬肉蛋飯糰輕食。',
+              image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=900&q=80',
+              mapQuery: 'BANTA CAFE by Hoshino Resorts'
+            },
+            {
+              id: 'd3-3',
+              time: '15:00',
+              title: 'Sports Depo 豐崎店',
+              category: '購物',
+              address: '1-411 Toyosaki, Tomigusuku, Okinawa',
+              stay: '預計停留 1 小時',
+              transit: '沿西海岸南下至豐見城，車程約 1 小時',
+              description: '大型運動與戶外用品專賣店，品項齊全、空間寬敞好逛，適合挑選運動服飾、鞋款與戶外裝備。',
+              foodOrShop: '購物提醒：結帳時可留意免稅櫃台標示並出示護照。',
+              image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=900&q=80',
+              mapQuery: 'Sports Depo Toyosaki Okinawa'
+            },
+            {
+              id: 'd3-4',
+              time: '16:30',
+              title: '瀨長島 Umikaji Terrace',
+              category: '景點・美食',
+              address: '174-6 Senaga, Tomigusuku, Okinawa',
+              stay: '預計停留 2 小時（剛好迎接 17:38 夕陽）',
+              transit: '從豐崎開車跨海堤僅需約 10 分鐘',
+              description: '有「沖繩小希臘」之稱的純白階梯式海景聚落！16:30 抵達正好能迎接金色夕陽灑落海面，還能近距離看那霸機場飛機起降。',
+              foodOrShop: '必吃美食：MOTOMU\'S CURRY BREAD 咖哩麵包、by・The・Shrimp 蝦蝦飯。',
+              image: 'https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=900&q=80',
+              mapQuery: 'Umikaji Terrace Senagajima'
+            },
+            {
+              id: 'd3-5',
+              time: '19:00',
+              title: 'ORIX Rent-a-Car 那霸西町店還車',
+              category: '自駕租車',
+              address: '1-19-8 Nishi, Naha, Okinawa 900-0036',
+              stay: '還車檢查約 15 分鐘',
+              transit: '從瀨長島開回那霸西町約 20 分鐘（含加油時間）',
+              description: '順利結束兩天自駕行程！還車前請先在附近加油站加滿油並保留收據，確認車內隨身物品皆已帶齊。',
+              foodOrShop: '小提醒：記得檢查後車廂與車充線是否全數取回。',
+              image: 'https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=900&q=80',
+              mapQuery: 'ORIX Rent-a-car Naha Nishi-machi'
+            },
+            {
+              id: 'd3-6',
+              time: '20:00',
+              title: '晚餐：一喜喜壽喜燒 (Kazuki)',
+              category: '美食',
+              address: 'Naha, Okinawa',
+              stay: '預計停留 1.5 小時',
+              transit: '從還車處步行約 20 分鐘 或 搭計程車約 5 分鐘',
+              description: '還車後輕鬆享受頂級日本和牛壽喜燒，油花細緻的牛肉沾上蛋液，犒賞兩天自駕的辛勞。',
+              foodOrShop: '推薦：沖繩縣產和牛壽喜燒套餐。',
+              image: 'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=900&q=80',
+              mapQuery: '一喜喜壽喜燒 Kazuki Naha Okinawa'
+            }
+          ]
+        },
+        {
+          day: 4,
+          date: '12/01 (二)',
+          theme: '波上宮參拜・首里古城與 PARCO CITY 購物日',
+          transportSummary: '計程車 ➔ 單軌電車 ➔ 接駁車/公車',
+          hotel: 'Nest Hotel Naha Nishi',
+          dayNote: '今日全程使用大眾運輸與計程車，輕鬆無負擔！下午在 PARCO CITY 可一路逛到傍晚再回國際通吃燒肉。',
+          items: [
+            {
+              id: 'd4-1',
+              time: '09:00',
+              title: '波上宮 & 波之上海灘',
+              category: '景點',
+              address: '1-25-11 Wakasa, Naha, Okinawa 900-0031',
+              stay: '預計停留 1.5 小時',
+              transit: '從飯店搭計程車車程約 10 分鐘（距離很近，車資親民）',
+              description: '建於珊瑚礁斷崖上的琉球八社之首「波上宮」，朱紅鳥居與碧藍海灘相映成趣，別忘了求一個可愛的書包御守或健康平安御守。',
+              foodOrShop: '看點：從波之上臨港道路步行橋可拍到懸崖神社全景。',
+              image: 'https://images.unsplash.com/photo-1578469550956-0e16b69c6a3d?auto=format&fit=crop&w=900&q=80',
+              mapQuery: 'Naminoue Shrine Naha'
+            },
+            {
+              id: 'd4-2',
+              time: '11:30',
+              title: '達摩寺 (西來院) + 首里城公園',
+              category: '景點',
+              address: '1-2 Kinjocho, Shuri, Naha, Okinawa',
+              stay: '預計停留 1.5 小時',
+              transit: '搭乘單軌電車前往首里站，車程約 30 分鐘',
+              description: '走訪充滿祈福達摩像的寧靜古剎「西來院達摩寺」，接著漫步世界遺產首里城公園，感受琉球王國歷史氣息與俯瞰那霸市景。',
+              foodOrShop: '小提醒：首里城正殿正進行令和復興工程，可參觀見學區。',
+              image: 'https://images.unsplash.com/photo-1545569341-9eb8b30979d9?auto=format&fit=crop&w=900&q=80',
+              mapQuery: 'Shurijo Castle Park'
+            },
+            {
+              id: 'd4-3',
+              time: '13:30',
+              title: '浦添西海岸 PARCO CITY 購物中心',
+              category: '購物・美食',
+              address: '3-1-1 Irijima, Urasoe, Okinawa 901-2123',
+              stay: '預計停留 5–6 小時',
+              transit: '搭乘接駁車或路線公車前往，車程約 30 分鐘',
+              description: '沖繩最大級臨海購物中心，擁有超過 250 間品牌與無敵海景美食街！好逛又好買，完美安排整個下午。',
+              foodOrShop: '午餐：Kuuya 月島｜下午茶：Tully\'s 皇家奶茶｜必逛：3COINS、日本彩券行試手氣！',
+              image: 'https://images.unsplash.com/photo-1519567241046-7f570eee3ce6?auto=format&fit=crop&w=900&q=80',
+              mapQuery: 'San-A Urasoe West Coast PARCO CITY'
+            },
+            {
+              id: 'd4-4',
+              time: '20:30',
+              title: '晚餐：燒肉本部牧場 國際通店',
+              category: '美食',
+              address: '2-1-3 Kumoji, Naha, Okinawa 900-0015',
+              stay: '預計停留 1.5 小時',
+              transit: '從 PARCO CITY 搭公車或計程車返回那霸國際通',
+              description: '自家牧場培育的沖繩頂級「本部牛」，曾獲日本農林水產大臣賞肯定，入口即化的豐富油花令人難忘。',
+              foodOrShop: '推薦：本部牛特選拼盤、沖繩生啤酒或無酒精飲品。',
+              image: 'https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?auto=format&fit=crop&w=900&q=80',
+              mapQuery: 'Yakiniku Motobu Farm Kokusai Street'
+            }
+          ]
+        },
+        {
+          day: 5,
+          date: '12/02 (三)',
+          theme: '壺屋陶藝散步・牧志市場與國際通最終採買',
+          transportSummary: '市區步行 ➔ 19:30 抵達那霸機場 ➔ 21:30 返台',
+          hotel: '溫暖的家（回程托運 25kg）',
+          dayNote: '註：PDF 上誤植為「12/2（二）」，實際 2026/12/2 為星期三。退房後可先將行李寄放飯店櫃台，19:30 前抵達機場辦理登機與退稅確認。',
+          items: [
+            {
+              id: 'd5-1',
+              time: '10:00',
+              title: '壺屋通 (壺屋陶器街)',
+              category: '景點',
+              address: '1-16 Tsuboya, Naha, Okinawa 902-0065',
+              stay: '預計停留 1 小時',
+              transit: '退房寄放行李後，步行或搭計程車前往',
+              description: '充滿懷舊氛圍的琉球石灰岩老街，兩旁林立著質感陶瓷工坊與選物小店，非常適合挑選一對專屬兩人的沖繩手作咖啡杯。',
+              foodOrShop: '推薦：沖繩傳統陶器（Yachimun）杯盤、風獅爺擺飾。',
+              image: 'https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?auto=format&fit=crop&w=900&q=80',
+              mapQuery: 'Tsuboya Yachimun Street Naha'
+            },
+            {
+              id: 'd5-2',
+              time: '11:00',
+              title: '第一牧志公設市場',
+              category: '景點',
+              address: '2-10-1 Matsuo, Naha, Okinawa 900-0014',
+              stay: '預計停留 1 小時',
+              transit: '從壺屋陶器街步行約 5 分鐘即達',
+              description: '被譽為「沖繩人的廚房」，全新改建後環境明亮整潔，一樓陳列色彩繽紛的沖繩海產、石垣牛與島野菜，充滿在地活力。',
+              foodOrShop: '看點：夜光貝、龍蝦、沖繩黑糖與海葡萄伴手禮。',
+              image: 'https://images.unsplash.com/photo-1534483509719-3feaee7c30da?auto=format&fit=crop&w=900&q=80',
+              mapQuery: 'First Makishi Public Market'
+            },
+            {
+              id: 'd5-3',
+              time: '12:00',
+              title: '午餐：とんかつ小やじ 那霸店 (炸豬排)',
+              category: '美食',
+              address: 'Naha, Okinawa',
+              stay: '預計停留 1 小時',
+              transit: '位於牧志市場／國際通周邊步行可達',
+              description: '口碑極佳的人氣日式炸豬排專門店，外皮金黃酥脆、肉質厚實多汁，搭配高麗菜絲與白飯十分滿足。',
+              foodOrShop: '推薦：沖繩縣產豬里肌/腰內炸豬排定食。',
+              image: 'https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&w=900&q=80',
+              mapQuery: 'とんかつ小やじ那覇店'
+            },
+            {
+              id: 'd5-4',
+              time: '13:00',
+              title: '國際通逛街 & suguri 抹茶專門店',
+              category: '購物・甜點',
+              address: 'Kokusai Dori, Naha, Okinawa',
+              stay: '下午自由採買時光',
+              transit: '步行漫遊國際通商店街',
+              description: '把握最後下午時光採買紅芋塔、雪鹽金楚糕與藥妝！逛累了就到「suguri」品嚐濃郁道地的手刷抹茶飲品與甜點。',
+              foodOrShop: '必喝：suguri 抹茶｜退稅提醒：購物後記得用手機登入 J-TaxRefund 登記。',
+              image: 'https://images.unsplash.com/photo-1515823064-d6e0c04616a7?auto=format&fit=crop&w=900&q=80',
+              mapQuery: 'suguri matcha Naha Okinawa'
+            },
+            {
+              id: 'd5-5',
+              time: '19:30',
+              title: '抵達那霸機場 (OKA) ➔ 21:30 搭機返台',
+              category: '航班交通',
+              address: 'Naha Airport, 150 Kagamizu, Naha, Okinawa',
+              stay: '21:30 起飛 ➔ 22:10 抵達桃園 T1',
+              transit: '回飯店領取行李後，從旭橋站搭單軌電車至那霸機場（約 20 分鐘）',
+              description: '19:30 抵達機場辦理虎航 IT233 報到（回程含 25 公斤托運行李），並至機場專用 KIOSK 自助機完成退稅程序，帶著滿滿回憶回家！',
+              foodOrShop: '航班資訊：IT233 21:30 OKA ➔ 22:10 TPE(T1)。',
+              image: 'https://images.unsplash.com/photo-1530521954074-e64f6810b32d?auto=format&fit=crop&w=900&q=80',
+              mapQuery: 'Naha Airport International Terminal'
+            }
+          ]
+        }
+      ],
+      restaurants: [
+        {
+          id: 'r1',
+          dayTag: 'DAY 1',
+          area: '那霸・國際通',
+          name: '一蘭拉麵 那霸國際通店',
+          hours: '10:00 – 翌 06:00（依官方現場為準）',
+          closed: '無休（待確認）',
+          price: '¥1,000 – ¥1,800',
+          dishes: '天然豚骨拉麵、半熟鹽味蛋、抹茶杏仁豆腐',
+          distance: '距離飯店搭車/單軌約 10–15 分鐘',
+          image: 'https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=800&q=80',
+          mapQuery: '一蘭 那覇国際通り店'
+        },
+        {
+          id: 'r2',
+          dayTag: 'DAY 2',
+          area: '北部・今歸仁',
+          name: '沖繩麵 今歸仁之森',
+          hours: '11:30 – 16:00',
+          closed: '待確認（建議出發前再確認）',
+          price: '¥850 – ¥1,300',
+          dishes: '軟骨沖繩麵、三層肉沖繩麵、沖繩炊飯',
+          distance: '距離美麗海水族館開車約 15 分鐘',
+          image: 'https://images.unsplash.com/photo-1555126634-323283e090fa?auto=format&fit=crop&w=800&q=80',
+          mapQuery: '沖繩麵 今歸仁之森'
+        },
+        {
+          id: 'r3',
+          dayTag: 'DAY 2',
+          area: '北部・今歸仁',
+          name: 'The Sinmay (Shinmay Coffee)',
+          hours: '10:00 – 16:30',
+          closed: '待確認',
+          price: '¥700 – ¥850',
+          dishes: 'Brown sugar bubble milk tea（黑糖珍珠奶茶，推薦兩人共飲）',
+          distance: '距離今歸仁之森開車約 10 分鐘',
+          image: 'https://images.unsplash.com/photo-1558857563-b371033873b8?auto=format&fit=crop&w=800&q=80',
+          mapQuery: 'The Sinmay Nakijin'
+        },
+        {
+          id: 'r4',
+          dayTag: 'DAY 2',
+          area: '北部・名護',
+          name: '星巴克 名護21世紀之森公園店',
+          hours: '07:00 – 22:00（待確認）',
+          closed: '不定休（附免費停車場）',
+          price: '¥500 – ¥800',
+          dishes: '焙茶經典拿鐵、沖繩限定黑糖鮮奶茶（可借草蓆戶外看海）',
+          distance: '距離古宇利海洋塔開車約 35 分鐘',
+          image: 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=800&q=80',
+          mapQuery: 'Starbucks Nago 21st Century Forest Park'
+        },
+        {
+          id: 'r5',
+          dayTag: 'DAY 2',
+          area: '中部・北谷美國村',
+          name: 'Taco Rice Cafe Kijimuna 塔可飯',
+          hours: '11:00 – 21:00（待確認）',
+          closed: '無休（待確認）',
+          price: '¥900 – ¥1,500',
+          dishes: '歐姆蛋塔可飯（Omu-Taco）、酪梨塔可飯',
+          distance: '位於美國村 Depot Island 內步行即達',
+          image: 'https://images.unsplash.com/photo-1565299585323-38d6b0865b47?auto=format&fit=crop&w=800&q=80',
+          mapQuery: 'Taco Rice Cafe Kijimuna Depot Island'
+        },
+        {
+          id: 'r6',
+          dayTag: 'DAY 2',
+          area: '中部・北谷美國村',
+          name: 'Blue Seal 冰淇淋 美國村店',
+          hours: '10:00 – 22:00（待確認）',
+          closed: '無休',
+          price: '¥400 – ¥750',
+          dishes: '沖繩紅芋冰淇淋、鹽金楚糕冰淇淋、甘蔗口味',
+          distance: '距離北谷日落海灘步行約 3 分鐘',
+          image: 'https://images.unsplash.com/photo-1501443762994-82bd5dace89a?auto=format&fit=crop&w=800&q=80',
+          mapQuery: 'Blue Seal American Village'
+        },
+        {
+          id: 'r7',
+          dayTag: 'DAY 2',
+          area: '那霸市區',
+          name: 'Kushiyaki Can 串燒居酒屋',
+          hours: '待確認（夜間營業）',
+          closed: '待確認',
+          price: '¥2,000 – ¥3,500',
+          dishes: '炭火串燒拼盤、沖繩料理（PDF 標註可略，駕駛不飲酒）',
+          distance: '距離美國村車程約 40 分鐘（回到那霸市區）',
+          image: 'https://images.unsplash.com/photo-1554797589-7241bb691973?auto=format&fit=crop&w=800&q=80',
+          mapQuery: 'Kushiyaki Can Naha'
+        },
+        {
+          id: 'r8',
+          dayTag: 'DAY 3',
+          area: '中部・讀谷村',
+          name: 'BANTA CAFE by 星野リゾート',
+          hours: '平日 10:00–日落後1小時 / 假日 08:00起（待確認）',
+          closed: '無休（待確認）',
+          price: '¥800 – ¥1,800',
+          dishes: '泡泡果凍蘇打、厚切豬肉蛋飯糰、海景下午茶',
+          distance: '距離沖繩琉球村開車約 15 分鐘',
+          image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80',
+          mapQuery: 'BANTA CAFE by Hoshino Resorts'
+        },
+        {
+          id: 'r9',
+          dayTag: 'DAY 3',
+          area: '南部・瀨長島',
+          name: "MOTOMU'S CURRY BREAD",
+          hours: '11:00 – 20:00（待確認）',
+          closed: '無休（待確認）',
+          price: '¥450 – ¥700',
+          dishes: 'A5黑毛和牛現炸咖哩麵包',
+          distance: '位於瀨長島 Umikaji Terrace 內',
+          image: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=800&q=80',
+          mapQuery: "MOTOMU'S CURRY BREAD Senagajima"
+        },
+        {
+          id: 'r10',
+          dayTag: 'DAY 3',
+          area: '南部・瀨長島',
+          name: 'by・The・Shrimp 蝦蝦飯',
+          hours: '11:00 – 21:00（待確認）',
+          closed: '無休（待確認）',
+          price: '¥1,300 – ¥1,800',
+          dishes: '招牌蒜香奶油蝦蝦飯、辣味蒜香蝦飯',
+          distance: '位於瀨長島 Umikaji Terrace 內',
+          image: 'https://images.unsplash.com/photo-1559737558-2f5a35f4523b?auto=format&fit=crop&w=800&q=80',
+          mapQuery: 'by The Shrimp Senagajima'
+        },
+        {
+          id: 'r11',
+          dayTag: 'DAY 3',
+          area: '那霸市區',
+          name: '一喜喜壽喜燒 (Kazuki)',
+          hours: '待確認（晚間營業）',
+          closed: '待確認',
+          price: '¥4,500 – ¥8,000',
+          dishes: '沖繩和牛壽喜燒套餐',
+          distance: '距離 ORIX 西町店步行約 20 分鐘／計程車約 5 分鐘',
+          image: 'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80',
+          mapQuery: '一喜喜壽喜燒 Kazuki Naha'
+        },
+        {
+          id: 'r12',
+          dayTag: 'DAY 4',
+          area: '浦添・PARCO CITY',
+          name: 'Kuuya 月島 & Tully\'s Coffee',
+          hours: '11:00 – 22:00（配合商場營業時間）',
+          closed: '依 PARCO CITY 公告',
+          price: '¥600 – ¥1,800',
+          dishes: 'Kuuya 月島午餐料理、Tully\'s 皇家奶茶',
+          distance: '位於浦添西海岸 PARCO CITY 商場內',
+          image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80',
+          mapQuery: 'San-A Urasoe West Coast PARCO CITY'
+        },
+        {
+          id: 'r13',
+          dayTag: 'DAY 4',
+          area: '那霸・國際通',
+          name: '燒肉本部牧場 國際通店',
+          hours: '11:30–15:00 / 17:00–22:00（待確認）',
+          closed: '無休（待確認）',
+          price: '¥4,500 – ¥8,500',
+          dishes: '特選本部牛燒肉盛合、本部牛沙朗、厚切牛舌',
+          distance: '位於那霸國際通，距離單軌縣廳前站步行約 3 分鐘',
+          image: 'https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?auto=format&fit=crop&w=800&q=80',
+          mapQuery: '燒肉本部牧場 國際通店'
+        },
+        {
+          id: 'r14',
+          dayTag: 'DAY 5',
+          area: '那霸・牧志/國際通',
+          name: 'とんかつ小やじ 那霸店 & suguri 抹茶',
+          hours: '午餐約 11:30–14:30（suguri 營業時間待確認）',
+          closed: '待確認',
+          price: '¥650 – ¥1,800',
+          dishes: '厚切日式炸豬排定食、suguri 濃抹茶拿鐵與甜點',
+          distance: '距離第一牧志公設市場與國際通步行約 3–5 分鐘',
+          image: 'https://images.unsplash.com/photo-1515823064-d6e0c04616a7?auto=format&fit=crop&w=800&q=80',
+          mapQuery: 'とんかつ小やじ那覇店'
+        }
+      ],
+      budget: {
+        exchangeRate: 0.215, // 1 JPY = 0.215 TWD
+        totalBudgetTWD: 45000,
+        expenses: [
+          { id: 'b1', category: '機票', title: '台灣虎航來回機票（2人含去15kg/回25kg）', amount: 11000, currency: 'TWD', payer: '我付款', note: '$5,500/人（已刷卡）' },
+          { id: 'b2', category: '住宿', title: 'Nest Hotel Naha Nishi（4晚雙人房）', amount: 8050, currency: 'TWD', payer: '我付款', note: '已刷卡完成' },
+          { id: 'b3', category: '租車', title: 'ORIX 租車兩日（11/29–11/30）', amount: 16170, currency: 'JPY', payer: '寶寶付款', note: '11/29 08:00 現場支付' },
+          { id: 'b4', category: '其他支出', title: '台灣駕照日文譯本申請費', amount: 100, currency: 'TWD', payer: '我付款', note: '監理站辦理 $100' }
+        ]
+      },
+      photos: [
+        {
+          id: 'p1',
+          day: 'DAY 2',
+          caption: '沖繩美麗海水族館・黑潮之海的療癒藍',
+          url: 'https://images.unsplash.com/photo-1582967788606-a171c1080cb0?auto=format&fit=crop&w=900&q=80',
+          date: '2026.11.29'
+        },
+        {
+          id: 'p2',
+          day: 'DAY 2',
+          caption: '跨過古宇利大橋，迎接果凍色的古宇利藍',
+          url: 'https://images.unsplash.com/photo-1590523277543-a94d2e4eb00b?auto=format&fit=crop&w=900&q=80',
+          date: '2026.11.29'
+        },
+        {
+          id: 'p3',
+          day: 'DAY 3',
+          caption: 'BANTA CAFE 懸崖露台看海發呆的午後',
+          url: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=900&q=80',
+          date: '2026.11.30'
+        },
+        {
+          id: 'p4',
+          day: 'DAY 5',
+          caption: '國際通散步與濃郁抹茶香氣',
+          url: 'https://images.unsplash.com/photo-1515823064-d6e0c04616a7?auto=format&fit=crop&w=900&q=80',
+          date: '2026.12.02'
+        }
+      ],
+      packing: [
+        {
+          category: '出發前確認事項',
+          items: [
+            { id: 'pk1', text: '投保旅遊平安險＋不便險（含海外突發疾病）', done: false },
+            { id: 'pk2', text: '購買日本上網 SIM 卡 / 開通 eSIM', done: false },
+            { id: 'pk3', text: '入境最晚 6 小時前填寫 Visit Japan Web 並截圖', done: false },
+            { id: 'pk4', text: '手機登入註冊 J-TaxRefund 退稅收款帳號', done: false },
+            { id: 'pk5', text: '抵達日本境內後下載「找停車位 App」（避開 Times）', done: false }
+          ]
+        },
+        {
+          category: '護照及重要文件',
+          items: [
+            { id: 'pk6', text: '中華民國護照正本（確認效期 6 個月以上）', done: false },
+            { id: 'pk7', text: '台灣汽車駕照正本（駕駛人必帶！）', done: false },
+            { id: 'pk8', text: '台灣駕照日文譯本（缺一不可，無譯本無法取車）', done: false },
+            { id: 'pk9', text: '日幣現金（含租車費 ¥16,170 備用）與海外回饋信用卡', done: false }
+          ]
+        },
+        {
+          category: '機票及租車文件',
+          items: [
+            { id: 'pk10', text: '台灣虎航 IT232 / IT233 電子機票與訂位代號', done: false },
+            { id: 'pk11', text: 'ORIX Rent-a-Car 那霸西町店預約確認單', done: false },
+            { id: 'pk12', text: 'Nest Hotel Naha Nishi 四晚訂房確認憑證', done: false }
+          ]
+        },
+        {
+          category: '保暖衣物（11月底沖繩 18–23°C 海風微涼）',
+          items: [
+            { id: 'pk13', text: '薄長袖上衣 / 針織衫（4–5 套）', done: false },
+            { id: 'pk14', text: '防風薄外套 / 風衣（古宇利、瀨長島海邊風大必備）', done: false },
+            { id: 'pk15', text: '長褲 / 長裙與貼身衣物', done: false }
+          ]
+        },
+        {
+          category: '鞋類與防風配件（含清單必備項）',
+          items: [
+            { id: 'pk16', text: '好走防滑休閒步鞋（日行萬步與礁岩海邊適用）', done: false },
+            { id: 'pk17', text: '遮陽帽 / 針織毛帽、輕薄圍巾（海邊防風保暖）', done: false },
+            { id: 'pk18', text: '太陽眼鏡（自駕防刺眼陽光超重要）', done: false },
+            { id: 'pk19', text: '輕便折疊晴雨傘', done: false }
+          ]
+        },
+        {
+          category: '相機及充電設備',
+          items: [
+            { id: 'pk20', text: '手機、相機、記憶卡與備用電池', done: false },
+            { id: 'pk21', text: '行動電源（務必放隨身行李，不可托運）', done: false },
+            { id: 'pk22', text: '多孔 USB 充電器與充電線（日本為雙平腳插座免轉接）', done: false }
+          ]
+        },
+        {
+          category: '盥洗用品與常備藥',
+          items: [
+            { id: 'pk23', text: '個人保養品、護唇膏、保濕乳液', done: false },
+            { id: 'pk24', text: '牙刷牙膏、梳子、隱形眼鏡', done: false },
+            { id: 'pk25', text: '常備藥品（暈車/暈船藥、腸胃藥、止痛藥、OK繃）', done: false }
+          ]
+        },
+        {
+          category: '自駕與旅遊小物',
+          items: [
+            { id: 'pk26', text: '車用手機支架 & 車充線（導航必備）', done: false },
+            { id: 'pk27', text: '折疊購物袋 / 環保袋（日本塑膠袋需付費）', done: false },
+            { id: 'pk28', text: '行李秤（回程 25kg 托運重量把關）', done: false }
+          ]
+        }
+      ],
+      shopping: [
+        { id: 's1', spot: '美麗海水族館', name: '禮品店外烤地瓜販賣機', price: 600, currency: 'JPY', note: 'PDF 必買推薦！', bought: false },
+        { id: 's2', spot: '美麗海水族館', name: '禮品店外沖繩限定氣泡水', price: 200, currency: 'JPY', note: '限定包裝', bought: false },
+        { id: 's3', spot: '名護星巴克', name: '沖繩限定城市杯 / 隨行杯', price: 2500, currency: 'JPY', note: '21世紀之森公園店看看', bought: false },
+        { id: 's4', spot: 'Sport Depo 豐崎店', name: '運動鞋 / 運動服飾採買', price: 12000, currency: 'JPY', note: 'Day 3 下午行程', bought: false },
+        { id: 's5', spot: 'PARCO CITY', name: '3COINS 生活雜貨 & 旅行小物', price: 1500, currency: 'JPY', note: 'Day 4 必逛', bought: false },
+        { id: 's6', spot: 'PARCO CITY', name: '日本彩券試手氣', price: 1000, currency: 'JPY', note: '和寶寶一起刮刮樂', bought: false },
+        { id: 's7', spot: '壺屋陶器街', name: '手工沖繩陶器咖啡對杯', price: 4500, currency: 'JPY', note: '一週年紀念禮物', bought: false },
+        { id: 's8', spot: '國際通', name: '御菓子御殿 紅芋塔 & 雪鹽金楚糕', price: 3500, currency: 'JPY', note: '公司與家人伴手禮', bought: false }
+      ]
+    };
+
+    // =========================================================================
+    // 2. STATE MANAGEMENT & LOCALSTORAGE PERSISTENCE
+    // =========================================================================
+    let appData = loadData();
+    let currentTab = 'home';
+    let selectedDay = 1; // 1-5 or 'all'
+    let selectedMapDay = 2;
+    let selectedDiningFilter = 'ALL';
+    let selectedPhotoFilter = 'ALL';
+    let editMode = false;
+
+    function loadData() {
+      try {
+        const saved = localStorage.getItem(STORAGE_KEY);
+        if (saved) {
+          return JSON.parse(saved);
+        }
+      } catch (e) {
+        console.error('Failed to load localStorage:', e);
+      }
+      return JSON.parse(JSON.stringify(DEFAULT_DATA));
+    }
+
+    function saveData(msg = '已自動儲存至手帳') {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(appData));
+        showToast(msg);
+      } catch (e) {
+        console.error('Save error:', e);
+        showToast('儲存空間已滿，建議減少大型照片或匯出備份');
+      }
+    }
+
+    function showToast(text) {
+      const toast = document.getElementById('toast');
+      const msgEl = document.getElementById('toastMsg');
+      msgEl.textContent = text;
+      toast.classList.remove('translate-x-full', 'opacity-0');
+      clearTimeout(window.__toastTimer);
+      window.__toastTimer = setTimeout(() => {
+        toast.classList.add('translate-x-full', 'opacity-0');
+      }, 2400);
+    }
+
+    // =========================================================================
+    // 3. NAVIGATION & EDIT MODE
+    // =========================================================================
+    function switchTab(tab, extraParam = null) {
+      currentTab = tab;
+      if (tab === 'itinerary' && extraParam !== null) {
+        selectedDay = extraParam;
+      }
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      updateNavHighlight();
+      render();
+    }
+
+    function updateNavHighlight() {
+      document.querySelectorAll('.nav-btn').forEach(btn => {
+        const isTarget = btn.dataset.nav === currentTab;
+        btn.className = isTarget
+          ? 'nav-btn px-3 py-1.5 rounded-full bg-coffee-800 text-cream-100 font-medium transition'
+          : 'nav-btn px-3 py-1.5 rounded-full text-coffee-800 hover:bg-cream-200 transition';
+      });
+      document.querySelectorAll('.mnav-btn').forEach(btn => {
+        const isTarget = btn.dataset.mnav === currentTab;
+        btn.className = isTarget
+          ? 'mnav-btn flex flex-col items-center py-1 px-2 rounded-xl text-[10px] gap-0.5 bg-cblue-200/80 text-coffee-800 font-semibold'
+          : 'mnav-btn flex flex-col items-center py-1 px-2 rounded-xl text-[10px] gap-0.5 text-coffee-600';
+      });
+    }
+
+    function toggleEditMode() {
+      editMode = !editMode;
+      const btn = document.getElementById('editModeBtn');
+      const label = document.getElementById('editModeLabel');
+      const banner = document.getElementById('editBanner');
+      if (editMode) {
+        btn.classList.add('bg-coffee-800', 'text-cream-100');
+        btn.classList.remove('bg-cream-200/70', 'text-coffee-800');
+        label.textContent = '編輯中';
+        banner.classList.remove('hidden');
+      } else {
+        btn.classList.remove('bg-coffee-800', 'text-cream-100');
+        btn.classList.add('bg-cream-200/70', 'text-coffee-800');
+        label.textContent = '編輯模式';
+        banner.classList.add('hidden');
+      }
+      render();
+    }
+
+    function toggleMoreMenu() {
+      const drawer = document.getElementById('moreDrawer');
+      drawer.classList.toggle('hidden');
+    }
+
+    // =========================================================================
+    // 4. RENDER ROUTER
+    // =========================================================================
+    function render() {
+      const container = document.getElementById('appContainer');
+      switch (currentTab) {
+        case 'home': container.innerHTML = renderHome(); break;
+        case 'itinerary': container.innerHTML = renderItinerary(); break;
+        case 'maps': container.innerHTML = renderMaps(); break;
+        case 'dining': container.innerHTML = renderDining(); break;
+        case 'budget': container.innerHTML = renderBudget(); break;
+        case 'photos': container.innerHTML = renderPhotos(); break;
+        case 'packing': container.innerHTML = renderPacking(); break;
+        case 'shopping': container.innerHTML = renderShopping(); break;
+        case 'weather':
+          container.innerHTML = renderWeather();
+          fetchLiveWeather();
+          break;
+      }
+      lucide.createIcons();
+    }
+
+    // =========================================================================
+    // 5. PAGE 1: HOME (首頁總覽)
+    // =========================================================================
+    function renderHome() {
+      const m = appData.meta;
+      return `
+        <div class="fade-in space-y-8">
+          <!-- Hero Section -->
+          <section class="relative rounded-3xl overflow-hidden border border-cream-300 shadow-journal-lg bg-coffee-800">
+            <img src="${m.heroImage}" onerror="this.src='https://placehold.co/1400x700/D9E5E9/4A3B32?text=OKINAWA+TRAVEL+JOURNAL'" alt="Okinawa Coast" class="w-full h-[360px] sm:h-[440px] object-cover opacity-85" />
+            <div class="absolute inset-0 bg-gradient-to-t from-coffee-900/85 via-coffee-900/35 to-transparent"></div>
+            
+            ${editMode ? `
+              <button onclick="openEditMetaModal()" class="absolute top-4 right-4 bg-cream-100/95 text-coffee-800 px-3.5 py-1.5 rounded-full text-xs font-medium shadow flex items-center gap-1.5 hover:bg-white">
+                <i data-lucide="edit-2" class="w-3.5 h-3.5"></i> 編輯首頁主視覺與資訊
+              </button>
+            ` : ''}
+
+            <div class="absolute bottom-0 inset-x-0 p-6 sm:p-10 text-cream-100">
+              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cream-100/20 backdrop-blur-md border border-cream-100/30 text-xs tracking-widest mb-3">
+                <span>${m.dates}</span>
+                <span>•</span>
+                <span>5 DAYS 4 NIGHTS</span>
+              </div>
+              <h1 class="font-serif text-3xl sm:text-5xl font-bold tracking-wide text-white leading-tight">${m.title}</h1>
+              <p class="text-base sm:text-lg text-cblue-100 font-light mt-1.5 tracking-wider">${m.subtitle}</p>
+            </div>
+          </section>
+
+          <!-- Intro Journal Card -->
+          <section class="bg-white rounded-3xl p-6 sm:p-8 border border-cream-300 shadow-journal paper-texture ${editMode ? 'edit-highlight' : ''}">
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xs uppercase tracking-[0.2em] text-coffee-400 font-serif">TRAVEL PREFACE</span>
+              ${editMode ? `<button onclick="openEditMetaModal()" class="text-xs text-coffee-600 underline">修改簡介</button>` : ''}
+            </div>
+            <p class="text-sm sm:text-base leading-relaxed text-coffee-900 font-light">${m.intro}</p>
+          </section>
+
+          <!-- Trip Overview Cards -->
+          <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div class="bg-cream-200/70 rounded-2xl p-5 border border-cream-300">
+              <div class="flex items-center gap-2 text-coffee-600 text-xs mb-2">
+                <i data-lucide="calendar" class="w-4 h-4 text-cblue-600"></i>
+                <span>旅行天數</span>
+              </div>
+              <div class="font-serif text-xl font-bold text-coffee-800">五天四夜</div>
+              <div class="text-xs text-coffee-600 mt-1">2026/11/28 (六) — 12/02 (三)</div>
+            </div>
+
+            <div class="bg-cream-200/70 rounded-2xl p-5 border border-cream-300">
+              <div class="flex items-center gap-2 text-coffee-600 text-xs mb-2">
+                <i data-lucide="bed-double" class="w-4 h-4 text-cblue-600"></i>
+                <span>連住四晚住宿</span>
+              </div>
+              <div class="font-serif text-lg font-bold text-coffee-800 leading-snug">Nest Hotel Naha Nishi</div>
+              <div class="text-xs text-coffee-600 mt-1">那霸市西町（近單軌旭橋站）</div>
+            </div>
+
+            <div class="bg-cream-200/70 rounded-2xl p-5 border border-cream-300">
+              <div class="flex items-center gap-2 text-coffee-600 text-xs mb-2">
+                <i data-lucide="car" class="w-4 h-4 text-cblue-600"></i>
+                <span>交通方式</span>
+              </div>
+              <div class="font-serif text-lg font-bold text-coffee-800">Day 2–3 自駕 + 市區單軌</div>
+              <div class="text-xs text-coffee-600 mt-1">ORIX 租車那霸西町店（步行2分）</div>
+            </div>
+
+            <div class="bg-cream-200/70 rounded-2xl p-5 border border-cream-300">
+              <div class="flex items-center gap-2 text-coffee-600 text-xs mb-2">
+                <i data-lucide="plane" class="w-4 h-4 text-cblue-600"></i>
+                <span>台灣虎航航班</span>
+              </div>
+              <div class="text-xs text-coffee-800 font-medium">去程 IT232：18:20 ➔ 20:40</div>
+              <div class="text-xs text-coffee-800 font-medium mt-1">回程 IT233：21:30 ➔ 22:10</div>
+            </div>
+          </section>
+
+          <!-- 5-Day Quick Navigation -->
+          <section class="space-y-4">
+            <div class="flex items-end justify-between">
+              <div>
+                <div class="text-xs tracking-[0.2em] text-coffee-400 font-serif">ITINERARY OVERVIEW</div>
+                <h2 class="text-2xl font-bold text-coffee-800">五天行程快速導覽</h2>
+              </div>
+              <button onclick="switchTab('itinerary', 'all')" class="text-xs text-cblue-600 hover:text-coffee-800 flex items-center gap-1 font-medium">
+                <span>檢視完整時間軸</span>
+                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+              </button>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3.5">
+              ${appData.days.map(d => `
+                <button onclick="switchTab('itinerary', ${d.day})" class="group text-left bg-white hover:bg-cblue-100/50 rounded-2xl p-4 border border-cream-300 shadow-journal transition flex flex-col justify-between">
+                  <div>
+                    <div class="flex items-center justify-between">
+                      <span class="px-2.5 py-0.5 rounded-full bg-cblue-200/80 text-coffee-800 font-serif text-xs font-bold">DAY ${d.day}</span>
+                      <span class="text-xs text-coffee-600">${d.date}</span>
+                    </div>
+                    <h3 class="font-bold text-coffee-800 text-sm mt-3 group-hover:text-cblue-600 transition">${d.theme}</h3>
+                    <p class="text-xs text-coffee-600 mt-1.5 line-clamp-2">${d.items.map(i => i.title.replace(/^(午餐：|晚餐：)/, '')).join(' · ')}</p>
+                  </div>
+                  <div class="mt-4 pt-2.5 border-t border-cream-200 flex items-center justify-between text-[11px] text-coffee-400 group-hover:text-coffee-800">
+                    <span>查看當日詳情</span>
+                    <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+                  </div>
+                </button>
+              `).join('')}
+            </div>
+          </section>
+
+          <!-- PDF Conflict & Important Notes Banner -->
+          <section class="bg-cblue-100/70 rounded-3xl p-6 border border-cblue-400/40 space-y-4">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-2.5">
+                <div class="w-8 h-8 rounded-full bg-white flex items-center justify-center text-coffee-800 shadow-xs">
+                  <i data-lucide="alert-circle" class="w-4 h-4 text-cblue-600"></i>
+                </div>
+                <div>
+                  <h2 class="text-lg font-bold text-coffee-800">行程核對與重要行前提醒</h2>
+                  <p class="text-xs text-coffee-600">依據您的簡報內容完整核對，標記需留意之時間與規則</p>
+                </div>
+              </div>
+              ${editMode ? `<button onclick="openAddNoticeModal()" class="px-3 py-1.5 rounded-full bg-coffee-800 text-cream-100 text-xs">+ 新增提醒</button>` : ''}
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+              ${appData.notices.map((n, idx) => `
+                <div class="bg-white/90 rounded-2xl p-4 border border-cream-300 relative">
+                  <div class="flex items-start justify-between gap-2">
+                    <span class="inline-flex items-center gap-1.5 text-xs font-semibold ${n.type === 'conflict' ? 'text-amber-800' : 'text-coffee-800'}">
+                      <span>${n.type === 'conflict' ? '⚠️' : '📌'}</span>
+                      <span>${n.title}</span>
+                    </span>
+                    ${editMode ? `
+                      <button onclick="deleteNotice(${idx})" class="text-xs text-red-600 hover:underline">刪除</button>
+                    ` : ''}
+                  </div>
+                  <p class="text-xs text-coffee-600 mt-1.5 leading-relaxed">${n.detail}</p>
+                </div>
+              `).join('')}
+            </div>
+          </section>
+
+          <!-- Essential Travel Info Accordion Cards -->
+          <section class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="bg-white rounded-2xl p-5 border border-cream-300 shadow-journal">
+              <div class="flex items-center gap-2 font-bold text-coffee-800 text-sm mb-2">
+                <i data-lucide="plane-takeoff" class="w-4 h-4 text-cblue-600"></i>
+                <span>航班與托運額度</span>
+              </div>
+              <ul class="text-xs text-coffee-600 space-y-2 leading-relaxed">
+                <li><strong>去程 11/28：</strong>IT232 18:20 TPE(T1) ➔ 20:40 OKA（含 15kg 托運）</li>
+                <li><strong>回程 12/02：</strong>IT233 21:30 OKA ➔ 22:10 TPE(T1)（含 25kg 托運）</li>
+                <li><strong>入境：</strong>最晚抵達前 6 小時完成 Visit Japan Web 填寫。</li>
+              </ul>
+            </div>
+
+            <div class="bg-white rounded-2xl p-5 border border-cream-300 shadow-journal">
+              <div class="flex items-center gap-2 font-bold text-coffee-800 text-sm mb-2">
+                <i data-lucide="receipt" class="w-4 h-4 text-cblue-600"></i>
+                <span>日本退稅三步驟</span>
+              </div>
+              <ul class="text-xs text-coffee-600 space-y-2 leading-relaxed">
+                <li><strong>1. 現場付款：</strong>購物時需先以「含稅價格」支付。</li>
+                <li><strong>2. 手機登記：</strong>登入 J-TaxRefund 登記收款方式。</li>
+                <li><strong>3. 機場確認：</strong>離境當天在機場專用 KIOSK 自助機完成手續。</li>
+              </ul>
+            </div>
+
+            <div class="bg-white rounded-2xl p-5 border border-cream-300 shadow-journal">
+              <div class="flex items-center gap-2 font-bold text-coffee-800 text-sm mb-2">
+                <i data-lucide="parking-circle" class="w-4 h-4 text-cblue-600"></i>
+                <span>沖繩自駕與停車秘訣</span>
+              </div>
+              <ul class="text-xs text-coffee-600 space-y-2 leading-relaxed">
+                <li><strong>租車費：</strong>11/29 08:00 ORIX 現場付 ¥16,170（可刷卡/現金）。</li>
+                <li><strong>停車 App：</strong>到日本境內才可下載找車位 App。</li>
+                <li><strong>避雷提醒：</strong>盡量別找 Times 停車場，停車費會較貴唷！</li>
+              </ul>
+            </div>
+          </section>
+        </div>
+      `;
+    }
+
+    // =========================================================================
+    // 6. PAGE 2: DAILY ITINERARY (每日行程時間軸)
+    // =========================================================================
+    function renderItinerary() {
+      const daysToShow = selectedDay === 'all'
+        ? appData.days
+        : appData.days.filter(d => d.day === selectedDay);
+
+      return `
+        <div class="fade-in space-y-6">
+          <!-- Header & Day Selector Tabs -->
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div>
+              <div class="text-xs tracking-[0.2em] text-coffee-400 font-serif">DAILY TIMELINE</div>
+              <h1 class="text-2xl sm:text-3xl font-bold text-coffee-800">每日行程時間軸</h1>
+            </div>
+            
+            <div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar pb-1">
+              ${appData.days.map(d => `
+                <button onclick="selectedDay=${d.day}; render();" class="px-3.5 py-2 rounded-full text-xs font-medium whitespace-nowrap transition ${selectedDay === d.day ? 'bg-coffee-800 text-cream-100 shadow-xs' : 'bg-white text-coffee-800 border border-cream-300 hover:bg-cream-200'}">
+                  DAY ${d.day} <span class="opacity-75 ml-0.5">${d.date.split(' ')[0]}</span>
+                </button>
+              `).join('')}
+              <button onclick="selectedDay='all'; render();" class="px-3.5 py-2 rounded-full text-xs font-medium whitespace-nowrap transition ${selectedDay === 'all' ? 'bg-coffee-800 text-cream-100 shadow-xs' : 'bg-white text-coffee-800 border border-cream-300 hover:bg-cream-200'}">
+                全部五天
+              </button>
+            </div>
+          </div>
+
+          ${daysToShow.map(d => `
+            <article class="space-y-5">
+              <!-- Day Banner Card -->
+              <div class="bg-cream-200/80 rounded-3xl p-5 sm:p-6 border border-cream-300">
+                <div class="flex flex-wrap items-center justify-between gap-3">
+                  <div>
+                    <div class="flex items-center gap-2.5">
+                      <span class="px-3 py-1 rounded-full bg-coffee-800 text-cream-100 font-serif text-xs font-bold tracking-wider">DAY ${d.day}</span>
+                      <span class="text-sm font-medium text-coffee-800">${d.date}</span>
+                    </div>
+                    <h2 class="text-xl sm:text-2xl font-bold text-coffee-800 mt-2">${d.theme}</h2>
+                  </div>
+                  <div class="flex flex-wrap items-center gap-2">
+                    <button onclick="selectedMapDay=${d.day}; switchTab('maps');" class="px-3.5 py-2 rounded-full bg-white text-coffee-800 border border-cream-300 text-xs font-medium hover:bg-cblue-100 transition flex items-center gap-1.5">
+                      <i data-lucide="map" class="w-3.5 h-3.5 text-cblue-600"></i>
+                      <span>查看當日路線地圖</span>
+                    </button>
+                    ${editMode ? `
+                      <button onclick="openItineraryItemModal(${d.day})" class="px-3.5 py-2 rounded-full bg-coffee-800 text-cream-100 text-xs font-medium flex items-center gap-1">
+                        <i data-lucide="plus" class="w-3.5 h-3.5"></i> 新增行程
+                      </button>
+                    ` : ''}
+                  </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-4 pt-4 border-t border-cream-300/80 text-xs text-coffee-700">
+                  <div class="flex items-center gap-2">
+                    <i data-lucide="car-front" class="w-4 h-4 text-cblue-600 shrink-0"></i>
+                    <span><strong>當日交通：</strong>${d.transportSummary}</span>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <i data-lucide="home" class="w-4 h-4 text-cblue-600 shrink-0"></i>
+                    <span><strong>當日住宿：</strong>${d.hotel}</span>
+                  </div>
+                </div>
+
+                ${d.dayNote ? `
+                  <div class="mt-3 bg-white/80 rounded-2xl px-4 py-2.5 text-xs text-coffee-800 flex items-start gap-2 border border-cream-300/60">
+                    <i data-lucide="info" class="w-4 h-4 text-cblue-600 shrink-0 mt-0.5"></i>
+                    <span>${d.dayNote}</span>
+                  </div>
+                ` : ''}
+              </div>
+
+              <!-- Vertical Timeline -->
+              <div class="relative pl-6 sm:pl-8 border-l-2 border-cblue-400/50 space-y-6 ml-2 sm:ml-4">
+                ${d.items.map((item, idx) => `
+                  <div class="relative bg-white rounded-3xl border border-cream-300 shadow-journal overflow-hidden ${editMode ? 'edit-highlight' : ''}">
+                    <!-- Timeline Dot -->
+                    <div class="absolute -left-[33px] sm:-left-[41px] top-6 w-4 h-4 rounded-full bg-cblue-400 border-4 border-cream-100 shadow-xs"></div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-12">
+                      <!-- Photo -->
+                      <div class="md:col-span-4 h-48 md:h-auto relative bg-cream-200">
+                        <img src="${item.image}" onerror="this.src='https://placehold.co/600x400/F2ECE4/4A3B32?text=OKINAWA'" alt="${item.title}" class="w-full h-full object-cover" />
+                        <span class="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-cream-100/90 backdrop-blur-xs text-[11px] font-medium text-coffee-800 border border-cream-300">
+                          ${item.category}
+                        </span>
+                      </div>
+
+                      <!-- Details -->
+                      <div class="md:col-span-8 p-5 sm:p-6 flex flex-col justify-between space-y-4">
+                        <div>
+                          <div class="flex flex-wrap items-center justify-between gap-2">
+                            <span class="font-serif text-lg font-bold text-cblue-600 tracking-wider">${item.time}</span>
+                            ${editMode ? `
+                              <div class="flex items-center gap-2">
+                                <button onclick="openItineraryItemModal(${d.day}, '${item.id}')" class="px-2.5 py-1 rounded-lg bg-cream-200 text-coffee-800 text-xs hover:bg-cblue-200">編輯</button>
+                                <button onclick="deleteItineraryItem(${d.day}, '${item.id}')" class="px-2.5 py-1 rounded-lg bg-red-50 text-red-700 text-xs hover:bg-red-100">刪除</button>
+                              </div>
+                            ` : ''}
+                          </div>
+
+                          <h3 class="text-lg sm:text-xl font-bold text-coffee-800 mt-1">${item.title}</h3>
+                          <p class="text-xs sm:text-sm text-coffee-700 mt-2 leading-relaxed">${item.description}</p>
+
+                          <!-- Meta pills -->
+                          <div class="mt-3.5 space-y-1.5 text-xs text-coffee-600">
+                            <div class="flex items-start gap-2">
+                              <i data-lucide="navigation" class="w-3.5 h-3.5 text-cblue-600 shrink-0 mt-0.5"></i>
+                              <span><strong>交通時間：</strong>${item.transit}</span>
+                            </div>
+                            <div class="flex items-start gap-2">
+                              <i data-lucide="clock" class="w-3.5 h-3.5 text-cblue-600 shrink-0 mt-0.5"></i>
+                              <span><strong>預計停留：</strong>${item.stay}</span>
+                            </div>
+                            <div class="flex items-start gap-2">
+                              <i data-lucide="map-pin" class="w-3.5 h-3.5 text-cblue-600 shrink-0 mt-0.5"></i>
+                              <span><strong>地址：</strong>${item.address}</span>
+                            </div>
+                          </div>
+
+                          ${item.foodOrShop ? `
+                            <div class="mt-3.5 p-3 rounded-2xl bg-cream-100 border border-cream-300/80 text-xs text-coffee-800">
+                              <span class="font-semibold text-coffee-600">✦ 推薦與備註：</span>${item.foodOrShop}
+                            </div>
+                          ` : ''}
+                        </div>
+
+                        <!-- Google Maps Navigation Action -->
+                        <div class="pt-3 border-t border-cream-200 flex flex-wrap items-center justify-between gap-2">
+                          <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(item.mapQuery || item.title)}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-cblue-200/80 hover:bg-cblue-400/50 text-coffee-800 text-xs font-medium transition">
+                            <i data-lucide="map-pin" class="w-3.5 h-3.5"></i>
+                            <span>開啟 Google Maps 導航</span>
+                            <i data-lucide="external-link" class="w-3 h-3 opacity-70"></i>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                `).join('')}
+              </div>
+            </article>
+          `).join('')}
+        </div>
+      `;
+    }
+
+    // =========================================================================
+    // 7. PAGE 3: MAPS & SELF-DRIVE SAFETY (地圖與冬季自駕安全)
+    // =========================================================================
+    function renderMaps() {
+      const dayObj = appData.days.find(d => d.day === selectedMapDay) || appData.days[1];
+      const waypoints = dayObj.items.map(i => i.mapQuery || i.title);
+      const origin = encodeURIComponent(waypoints[0] || 'Nest Hotel Naha Nishi');
+      const destination = encodeURIComponent(waypoints[waypoints.length - 1] || 'Nest Hotel Naha Nishi');
+      const midpoints = waypoints.slice(1, -1).map(w => encodeURIComponent(w)).join('|');
+      const routeUrl = `https://www.google.com/maps/dir/?api=1&origin=${origin}&destination=${destination}${midpoints ? `&waypoints=${midpoints}` : ''}&travelmode=driving`;
+      const embedQuery = encodeURIComponent(waypoints[Math.min(1, waypoints.length - 1)] || 'Okinawa');
+
+      return `
+        <div class="fade-in space-y-6">
+          <div>
+            <div class="text-xs tracking-[0.2em] text-coffee-400 font-serif">MAPS & NAVIGATION</div>
+            <h1 class="text-2xl sm:text-3xl font-bold text-coffee-800">地圖導航與沖繩自駕指南</h1>
+          </div>
+
+          <!-- Day Route Selector -->
+          <div class="bg-white rounded-3xl p-5 sm:p-6 border border-cream-300 shadow-journal space-y-5">
+            <div class="flex flex-wrap items-center justify-between gap-3">
+              <div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar">
+                ${appData.days.map(d => `
+                  <button onclick="selectedMapDay=${d.day}; render();" class="px-3.5 py-2 rounded-full text-xs font-medium transition ${selectedMapDay === d.day ? 'bg-coffee-800 text-cream-100' : 'bg-cream-200/70 text-coffee-800 hover:bg-cblue-100'}">
+                    DAY ${d.day} ${d.day === 2 || d.day === 3 ? '🚗 自駕' : '🚃 市區'}
+                  </button>
+                `).join('')}
+              </div>
+
+              <a href="${routeUrl}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-coffee-800 text-cream-100 text-xs font-medium hover:bg-coffee-600 transition shadow-xs">
+                <i data-lucide="route" class="w-4 h-4 text-cblue-200"></i>
+                <span>在 Google Maps 開啟 DAY ${dayObj.day} 完整路線</span>
+              </a>
+            </div>
+
+            <!-- Embedded Interactive Map Frame -->
+            <div class="rounded-2xl overflow-hidden border border-cream-300 h-64 sm:h-80 bg-cream-200 relative">
+              <iframe
+                title="Okinawa Map"
+                width="100%"
+                height="100%"
+                style="border:0"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                src="https://maps.google.com/maps?q=${embedQuery}&t=&z=11&ie=UTF8&iwloc=&output=embed">
+              </iframe>
+            </div>
+
+            <!-- Day Stops List -->
+            <div>
+              <h3 class="text-sm font-bold text-coffee-800 mb-3">DAY ${dayObj.day} 站點順序與一鍵導航（點擊可個別導航）</h3>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                ${dayObj.items.map((item, idx) => `
+                  <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(item.mapQuery || item.title)}" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between p-3.5 rounded-2xl bg-cream-100 hover:bg-cblue-100/70 border border-cream-300 transition group">
+                    <div class="flex items-center gap-3 min-w-0">
+                      <span class="w-6 h-6 rounded-full bg-coffee-800 text-cream-100 text-xs font-serif flex items-center justify-center shrink-0">${idx + 1}</span>
+                      <div class="truncate">
+                        <div class="text-xs font-bold text-coffee-800 truncate">${item.time} ${item.title}</div>
+                        <div class="text-[11px] text-coffee-600 truncate">${item.address}</div>
+                      </div>
+                    </div>
+                    <i data-lucide="external-link" class="w-4 h-4 text-cblue-600 shrink-0 ml-2 group-hover:translate-x-0.5 transition"></i>
+                  </a>
+                `).join('')}
+              </div>
+            </div>
+          </div>
+
+          <!-- PDF Traffic & Self-Drive Rules -->
+          <section class="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <!-- Japanese Traffic Signals from PDF -->
+            <div class="bg-white rounded-3xl p-6 border border-cream-300 shadow-journal space-y-4">
+              <div class="flex items-center gap-2 text-coffee-800 font-bold text-base">
+                <i data-lucide="traffic-cone" class="w-5 h-5 text-cblue-600"></i>
+                <span>日本右駕與紅綠燈規則（PDF 筆記）</span>
+              </div>
+
+              <div class="space-y-2.5 text-xs text-coffee-700">
+                <div class="p-3 rounded-2xl bg-cream-100 border border-cream-300/70 flex items-center justify-between">
+                  <span><strong>高速公路速限：</strong>最高 80 公里/小時</span>
+                  <span class="px-2 py-0.5 rounded bg-white border border-cream-300 font-mono">80 km/h</span>
+                </div>
+                <div class="p-3 rounded-2xl bg-cream-100 border border-cream-300/70">
+                  <strong>轉彎口訣：</strong>「左轉小圈、右轉大圈」— 靠左側車道行駛，雨刷與方向燈位置與台灣相反。
+                </div>
+                <div class="p-3 rounded-2xl bg-red-50/70 border border-red-200/70 text-red-900">
+                  <strong>「止まれ」標誌：</strong>看到紅色倒三角「止まれ」務必完全煞停 <strong>3–5 秒</strong>，確認左右無車再起步。
+                </div>
+              </div>
+
+              <div class="pt-2 space-y-2 text-xs">
+                <div class="font-semibold text-coffee-800">日本箭頭紅綠燈判讀：</div>
+                <div class="p-2.5 rounded-xl bg-cream-200/60 flex items-center gap-2.5">
+                  <span class="text-base">🔴＋⬆️</span>
+                  <span>可<strong>直行</strong>，但不能左右轉</span>
+                </div>
+                <div class="p-2.5 rounded-xl bg-cream-200/60 flex items-center gap-2.5">
+                  <span class="text-base">🔴＋⬅️</span>
+                  <span>可<strong>左轉</strong>，但不能直行或右轉</span>
+                </div>
+                <div class="p-2.5 rounded-xl bg-cream-200/60 flex items-center gap-2.5">
+                  <span class="text-base">🟢＋➡️</span>
+                  <span><strong>所有方向</strong>都能通行，包含右轉</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Late November / Early December Okinawa Safety -->
+            <div class="bg-cblue-100/60 rounded-3xl p-6 border border-cblue-400/40 space-y-4">
+              <div class="flex items-center gap-2 text-coffee-800 font-bold text-base">
+                <i data-lucide="sunset" class="w-5 h-5 text-cblue-600"></i>
+                <span>11月底–12月初 沖繩冬季路況與安全提醒</span>
+              </div>
+
+              <ul class="space-y-3 text-xs text-coffee-700 leading-relaxed">
+                <li class="bg-white/90 p-3.5 rounded-2xl border border-cream-300">
+                  <strong class="text-coffee-800 block mb-1">🌅 日落時間早（約 17:38–17:40 天黑）</strong>
+                  Day 2 從名護開往美國村、Day 3 在瀨長島時正值日落，天色暗得很快，請提早開啟大燈；北部山區（今歸仁、名護）夜間路燈較少請放慢車速。
+                </li>
+                <li class="bg-white/90 p-3.5 rounded-2xl border border-cream-300">
+                  <strong class="text-coffee-800 block mb-1">💨 東北季風海邊強風注意</strong>
+                  11月底沖繩吹東北季風，行經<strong>古宇利大橋</strong>與<strong>瀨長島</strong>海堤時側風較強，請雙手握穩方向盤；下車開車門時務必抓緊門把防風吹開碰撞鄰車。
+                </li>
+                <li class="bg-white/90 p-3.5 rounded-2xl border border-cream-300">
+                  <strong class="text-coffee-800 block mb-1">🅿️ 停車場選擇提醒</strong>
+                  那霸市區與國際通周邊停車場費率差異大，建議抵達日本後下載停車位查詢 App，並<strong>盡量避開 Times 停車場</strong>（收費通常較高）。
+                </li>
+              </ul>
+            </div>
+          </section>
+        </div>
+      `;
+    }
+
+    // =========================================================================
+    // 8. PAGE 4: DINING GUIDE (餐廳美食專區)
+    // =========================================================================
+    function renderDining() {
+      const filters = ['ALL', 'DAY 1', 'DAY 2', 'DAY 3', 'DAY 4', 'DAY 5'];
+      const filtered = selectedDiningFilter === 'ALL'
+        ? appData.restaurants
+        : appData.restaurants.filter(r => r.dayTag === selectedDiningFilter);
+
+      return `
+        <div class="fade-in space-y-6">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div>
+              <div class="text-xs tracking-[0.2em] text-coffee-400 font-serif">CURATED DINING</div>
+              <h1 class="text-2xl sm:text-3xl font-bold text-coffee-800">沖繩美食與咖啡專區</h1>
+            </div>
+
+            <div class="flex items-center gap-2 flex-wrap">
+              ${filters.map(f => `
+                <button onclick="selectedDiningFilter='${f}'; render();" class="px-3 py-1.5 rounded-full text-xs font-medium transition ${selectedDiningFilter === f ? 'bg-coffee-800 text-cream-100' : 'bg-white text-coffee-800 border border-cream-300 hover:bg-cream-200'}">
+                  ${f === 'ALL' ? '全部餐廳' : f}
+                </button>
+              `).join('')}
+              ${editMode ? `
+                <button onclick="openRestaurantModal()" class="px-3.5 py-1.5 rounded-full bg-cblue-600 text-white text-xs font-medium">+ 新增餐廳</button>
+              ` : ''}
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+            ${filtered.map(r => `
+              <div class="bg-white rounded-3xl border border-cream-300 shadow-journal overflow-hidden flex flex-col justify-between ${editMode ? 'edit-highlight' : ''}">
+                <div>
+                  <div class="relative h-48 bg-cream-200">
+                    <img src="${r.image}" onerror="this.src='https://placehold.co/800x450/F2ECE4/4A3B32?text=OKINAWA+FOOD'" alt="${r.name}" class="w-full h-full object-cover" />
+                    <div class="absolute top-3 left-3 flex gap-1.5">
+                      <span class="px-2.5 py-1 rounded-full bg-coffee-800 text-cream-100 font-serif text-[11px] font-bold">${r.dayTag}</span>
+                      <span class="px-2.5 py-1 rounded-full bg-cream-100/90 text-coffee-800 text-[11px] font-medium">${r.area}</span>
+                    </div>
+                    ${editMode ? `
+                      <div class="absolute top-3 right-3 flex gap-1.5">
+                        <button onclick="openRestaurantModal('${r.id}')" class="px-2.5 py-1 rounded-full bg-white text-coffee-800 text-xs shadow">編輯</button>
+                        <button onclick="deleteRestaurant('${r.id}')" class="px-2.5 py-1 rounded-full bg-red-600 text-white text-xs shadow">刪除</button>
+                      </div>
+                    ` : ''}
+                  </div>
+
+                  <div class="p-5 space-y-3">
+                    <div class="flex items-start justify-between gap-2">
+                      <h3 class="text-lg font-bold text-coffee-800">${r.name}</h3>
+                      <span class="text-xs font-serif font-semibold text-cblue-600 bg-cblue-100 px-2.5 py-1 rounded-full shrink-0">${r.price}</span>
+                    </div>
+
+                    <div class="space-y-1.5 text-xs text-coffee-600">
+                      <div class="flex items-start gap-2">
+                        <i data-lucide="clock" class="w-3.5 h-3.5 text-cblue-600 shrink-0 mt-0.5"></i>
+                        <span><strong>營業時間：</strong>${r.hours}</span>
+                      </div>
+                      <div class="flex items-start gap-2">
+                        <i data-lucide="calendar-off" class="w-3.5 h-3.5 text-cblue-600 shrink-0 mt-0.5"></i>
+                        <span><strong>公休日：</strong>${r.closed}</span>
+                      </div>
+                      <div class="flex items-start gap-2">
+                        <i data-lucide="car" class="w-3.5 h-3.5 text-cblue-600 shrink-0 mt-0.5"></i>
+                        <span><strong>動線距離：</strong>${r.distance}</span>
+                      </div>
+                    </div>
+
+                    <div class="p-3 rounded-2xl bg-cream-100 border border-cream-300/70 text-xs text-coffee-800">
+                      <span class="font-semibold text-coffee-600">推薦餐點：</span>${r.dishes}
+                    </div>
+                  </div>
+                </div>
+
+                <div class="px-5 pb-5">
+                  <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(r.mapQuery || r.name)}" target="_blank" rel="noopener noreferrer" class="w-full inline-flex items-center justify-center gap-1.5 py-2.5 rounded-full bg-cream-200/80 hover:bg-cblue-200/80 text-coffee-800 text-xs font-medium transition">
+                    <i data-lucide="map-pin" class="w-3.5 h-3.5"></i>
+                    <span>開啟 Google Maps 位置</span>
+                  </a>
+                </div>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      `;
+    }
+
+    // =========================================================================
+    // 9. PAGE 5: BUDGET MANAGER (旅行預算與雙人分帳)
+    // =========================================================================
+    function renderBudget() {
+      const rate = Number(appData.budget.exchangeRate) || 0.215;
+      const totalBudget = Number(appData.budget.totalBudgetTWD) || 0;
+      const categories = ['機票', '租車', '住宿', 'ETC／高速公路費', '油錢', '餐飲', '購物', '景點門票', '其他支出'];
+
+      let totalSpentTWD = 0;
+      let paidByMe = 0;
+      let paidByBaby = 0;
+      let paidShared = 0;
+
+      const enriched = appData.budget.expenses.map(item => {
+        const twd = item.currency === 'JPY' ? Math.round(item.amount * rate) : Math.round(item.amount);
+        totalSpentTWD += twd;
+        if (item.payer === '我付款') paidByMe += twd;
+        else if (item.payer === '寶寶付款') paidByBaby += twd;
+        else paidShared += twd;
+        return { ...item, twd };
+      });
+
+      const remaining = totalBudget - totalSpentTWD;
+
+      return `
+        <div class="fade-in space-y-6">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div>
+              <div class="text-xs tracking-[0.2em] text-coffee-400 font-serif">TRAVEL BUDGET</div>
+              <h1 class="text-2xl sm:text-3xl font-bold text-coffee-800">旅行預算與雙人記帳</h1>
+            </div>
+
+            <!-- Exchange Rate & Total Budget Settings -->
+            <div class="flex flex-wrap items-center gap-2 bg-white px-4 py-2.5 rounded-2xl border border-cream-300 shadow-xs text-xs">
+              <label class="flex items-center gap-1.5 text-coffee-700">
+                <span>日幣匯率</span>
+                <input type="number" step="0.001" value="${rate}" onchange="updateBudgetMeta('exchangeRate', this.value)" class="w-16 px-2 py-1 rounded-lg bg-cream-100 border border-cream-300 font-mono text-coffee-800 focus:outline-none" />
+              </label>
+              <span class="text-cream-300">|</span>
+              <label class="flex items-center gap-1.5 text-coffee-700">
+                <span>總預算 NT$</span>
+                <input type="number" step="500" value="${totalBudget}" onchange="updateBudgetMeta('totalBudgetTWD', this.value)" class="w-24 px-2 py-1 rounded-lg bg-cream-100 border border-cream-300 font-mono text-coffee-800 focus:outline-none" />
+              </label>
+            </div>
+          </div>
+
+          <!-- Summary Cards -->
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div class="bg-white rounded-3xl p-5 border border-cream-300 shadow-journal">
+              <div class="text-xs text-coffee-600">目前總花費（換算台幣）</div>
+              <div class="font-serif text-3xl font-bold text-coffee-800 mt-1">NT$ ${totalSpentTWD.toLocaleString()}</div>
+              <div class="text-[11px] text-coffee-400 mt-1">含機票、住宿、租車與現場支出</div>
+            </div>
+
+            <div class="bg-white rounded-3xl p-5 border border-cream-300 shadow-journal">
+              <div class="text-xs text-coffee-600">預算剩餘差額</div>
+              <div class="font-serif text-3xl font-bold mt-1 ${remaining >= 0 ? 'text-cblue-600' : 'text-red-700'}">
+                ${remaining >= 0 ? `NT$ ${remaining.toLocaleString()}` : `-NT$ ${Math.abs(remaining).toLocaleString()}`}
+              </div>
+              <div class="text-[11px] text-coffee-400 mt-1">${remaining >= 0 ? '尚在設定預算內' : '已超出設定總預算'}</div>
+            </div>
+
+            <div class="bg-cblue-100/70 rounded-3xl p-5 border border-cblue-400/40">
+              <div class="text-xs font-semibold text-coffee-800 mb-2">兩人付款統計（🫶🏻 分帳小幫手）</div>
+              <div class="space-y-1 text-xs text-coffee-700">
+                <div class="flex justify-between"><span>我付款：</span><strong>NT$ ${paidByMe.toLocaleString()}</strong></div>
+                <div class="flex justify-between"><span>寶寶付款：</span><strong>NT$ ${paidByBaby.toLocaleString()}</strong></div>
+                ${paidShared > 0 ? `<div class="flex justify-between"><span>共同分攤：</span><strong>NT$ ${paidShared.toLocaleString()}</strong></div>` : ''}
+              </div>
+            </div>
+          </div>
+
+          <!-- Add Expense Form -->
+          <form onsubmit="addExpense(event)" class="bg-white rounded-3xl p-5 sm:p-6 border border-cream-300 shadow-journal space-y-4">
+            <div class="text-sm font-bold text-coffee-800 flex items-center gap-2">
+              <i data-lucide="plus-circle" class="w-4 h-4 text-cblue-600"></i>
+              <span>新增一筆旅行支出</span>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-3 text-xs">
+              <select id="expCat" class="px-3 py-2.5 rounded-xl bg-cream-100 border border-cream-300 text-coffee-800">
+                ${categories.map(c => `<option value="${c}">${c}</option>`).join('')}
+              </select>
+              <input id="expTitle" type="text" required placeholder="項目名稱（如：美ら海水族館門票）" class="lg:col-span-2 px-3 py-2.5 rounded-xl bg-cream-100 border border-cream-300 text-coffee-800" />
+              <div class="flex gap-1.5">
+                <select id="expCurr" class="px-2.5 py-2.5 rounded-xl bg-cream-100 border border-cream-300 text-coffee-800 font-medium">
+                  <option value="JPY">JPY ¥</option>
+                  <option value="TWD">TWD $</option>
+                </select>
+                <input id="expAmount" type="number" step="any" required placeholder="金額" class="w-full px-3 py-2.5 rounded-xl bg-cream-100 border border-cream-300 text-coffee-800" />
+              </div>
+              <select id="expPayer" class="px-3 py-2.5 rounded-xl bg-cream-100 border border-cream-300 text-coffee-800">
+                <option value="我付款">我付款</option>
+                <option value="寶寶付款">寶寶付款</option>
+                <option value="共同分攤">共同分攤</option>
+              </select>
+              <button type="submit" class="px-4 py-2.5 rounded-xl bg-coffee-800 text-cream-100 font-medium hover:bg-coffee-600 transition">
+                加入記帳
+              </button>
+            </div>
+            <input id="expNote" type="text" placeholder="備註（選填，如：刷卡、現場付現、哪一天的餐費）" class="w-full px-3 py-2 rounded-xl bg-cream-100/70 border border-cream-300 text-xs text-coffee-800" />
+          </form>
+
+          <!-- Expense List -->
+          <div class="bg-white rounded-3xl border border-cream-300 shadow-journal overflow-hidden">
+            <div class="p-4 sm:p-5 border-b border-cream-200 flex items-center justify-between">
+              <span class="font-bold text-sm text-coffee-800">支出明細紀錄（共 ${enriched.length} 筆）</span>
+              <span class="text-xs text-coffee-400">匯率 1 JPY = ${rate} TWD</span>
+            </div>
+            <div class="divide-y divide-cream-200">
+              ${enriched.map(item => `
+                <div class="p-4 sm:px-6 flex flex-col sm:flex-row sm:items-center justify-between gap-3 hover:bg-cream-100/60 transition">
+                  <div class="space-y-1">
+                    <div class="flex flex-wrap items-center gap-2">
+                      <span class="px-2.5 py-0.5 rounded-full bg-cream-200 text-coffee-800 text-[11px] font-medium">${item.category}</span>
+                      <span class="px-2.5 py-0.5 rounded-full ${item.payer === '寶寶付款' ? 'bg-cblue-200/80 text-coffee-800' : 'bg-cream-100 border border-cream-300 text-coffee-600'} text-[11px]">${item.payer}</span>
+                      <span class="font-bold text-sm text-coffee-800">${item.title}</span>
+                    </div>
+                    ${item.note ? `<div class="text-xs text-coffee-500 pl-1">${item.note}</div>` : ''}
+                  </div>
+
+                  <div class="flex items-center justify-between sm:justify-end gap-4">
+                    <div class="text-right">
+                      <div class="font-serif font-bold text-base text-coffee-800">NT$ ${item.twd.toLocaleString()}</div>
+                      ${item.currency === 'JPY' ? `<div class="text-[11px] text-coffee-500">¥${Number(item.amount).toLocaleString()} JPY</div>` : ''}
+                    </div>
+                    <div class="flex items-center gap-1.5">
+                      <button onclick="openEditExpenseModal('${item.id}')" class="p-1.5 rounded-lg text-coffee-600 hover:bg-cream-200" title="修改">
+                        <i data-lucide="edit-2" class="w-3.5 h-3.5"></i>
+                      </button>
+                      <button onclick="deleteExpense('${item.id}')" class="p-1.5 rounded-lg text-red-600 hover:bg-red-50" title="刪除">
+                        <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    // =========================================================================
+    // 10. PAGE 6: PHOTO WALL (旅行照片牆)
+    // =========================================================================
+    function renderPhotos() {
+      const filters = ['ALL', 'DAY 1', 'DAY 2', 'DAY 3', 'DAY 4', 'DAY 5'];
+      const list = selectedPhotoFilter === 'ALL'
+        ? appData.photos
+        : appData.photos.filter(p => p.day === selectedPhotoFilter);
+
+      return `
+        <div class="fade-in space-y-6">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div>
+              <div class="text-xs tracking-[0.2em] text-coffee-400 font-serif">MEMORY ALBUM</div>
+              <h1 class="text-2xl sm:text-3xl font-bold text-coffee-800">沖繩旅行手帳相簿</h1>
+            </div>
+
+            <button onclick="openUploadPhotoModal()" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-coffee-800 text-cream-100 text-xs font-medium hover:bg-coffee-600 transition shadow-xs self-start sm:self-auto">
+              <i data-lucide="image-plus" class="w-4 h-4 text-cblue-200"></i>
+              <span>上傳旅行照片</span>
+            </button>
+          </div>
+
+          <!-- Day Filter Pills -->
+          <div class="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1">
+            ${filters.map(f => `
+              <button onclick="selectedPhotoFilter='${f}'; render();" class="px-3.5 py-1.5 rounded-full text-xs font-medium whitespace-nowrap transition ${selectedPhotoFilter === f ? 'bg-coffee-800 text-cream-100' : 'bg-white text-coffee-800 border border-cream-300 hover:bg-cream-200'}">
+                ${f === 'ALL' ? '全部回憶' : f}
+              </button>
+            `).join('')}
+          </div>
+
+          <!-- Masonry Photo Wall -->
+          ${list.length === 0 ? `
+            <div class="bg-white rounded-3xl p-12 border border-cream-300 text-center space-y-3">
+              <i data-lucide="camera" class="w-8 h-8 text-coffee-400 mx-auto"></i>
+              <p class="text-sm text-coffee-600">這個分類還沒有照片，點擊右上方「上傳旅行照片」留下紀念吧！</p>
+            </div>
+          ` : `
+            <div class="masonry-grid">
+              ${list.map(p => `
+                <div class="masonry-item bg-white rounded-2xl p-2.5 pb-4 border border-cream-300 shadow-journal group relative">
+                  <div class="overflow-hidden rounded-xl cursor-pointer bg-cream-200" onclick="openLightbox('${p.id}')">
+                    <img src="${p.url}" alt="${p.caption}" class="w-full h-auto object-cover group-hover:scale-[1.02] transition duration-500" />
+                  </div>
+                  <div class="px-1.5 pt-3 flex items-start justify-between gap-2">
+                    <div>
+                      <div class="flex items-center gap-2">
+                        <span class="font-serif text-[11px] font-bold text-cblue-600">${p.day}</span>
+                        <span class="text-[11px] text-coffee-400">${p.date || ''}</span>
+                      </div>
+                      <p class="text-xs text-coffee-800 mt-1 leading-relaxed">${p.caption}</p>
+                    </div>
+                    <button onclick="deletePhoto('${p.id}')" title="刪除照片" class="p-1 text-coffee-400 hover:text-red-600 transition">
+                      <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
+                    </button>
+                  </div>
+                </div>
+              `).join('')}
+            </div>
+          `}
+        </div>
+      `;
+    }
+
+    // =========================================================================
+    // 11. PAGE 7: PACKING & PRE-TRIP CHECKLIST (旅行與行李清單)
+    // =========================================================================
+    function renderPacking() {
+      let totalItems = 0;
+      let doneItems = 0;
+      appData.packing.forEach(cat => {
+        cat.items.forEach(it => {
+          totalItems++;
+          if (it.done) doneItems++;
+        });
+      });
+      const pct = totalItems ? Math.round((doneItems / totalItems) * 100) : 0;
+
+      return `
+        <div class="fade-in space-y-6">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div>
+              <div class="text-xs tracking-[0.2em] text-coffee-400 font-serif">PACKING CHECKLIST</div>
+              <h1 class="text-2xl sm:text-3xl font-bold text-coffee-800">行前確認與行李清單</h1>
+            </div>
+
+            <!-- Progress Pill -->
+            <div class="bg-white px-4 py-2.5 rounded-2xl border border-cream-300 shadow-xs flex items-center gap-3">
+              <div class="text-xs text-coffee-700">準備進度：<strong>${doneItems} / ${totalItems}</strong></div>
+              <div class="w-24 h-2 bg-cream-200 rounded-full overflow-hidden">
+                <div class="h-full bg-cblue-600 transition-all duration-300" style="width:${pct}%"></div>
+              </div>
+              <span class="font-serif text-xs font-bold text-coffee-800">${pct}%</span>
+            </div>
+          </div>
+
+          <!-- Add Custom Packing Item -->
+          <form onsubmit="addPackingItem(event)" class="bg-white rounded-3xl p-4 sm:p-5 border border-cream-300 shadow-journal flex flex-col sm:flex-row gap-2.5 text-xs">
+            <select id="packCatSelect" class="px-3 py-2.5 rounded-xl bg-cream-100 border border-cream-300 text-coffee-800">
+              ${appData.packing.map((c, idx) => `<option value="${idx}">${c.category}</option>`).join('')}
+            </select>
+            <input id="packItemInput" type="text" required placeholder="自行新增行李或待辦項目..." class="flex-1 px-3 py-2.5 rounded-xl bg-cream-100 border border-cream-300 text-coffee-800" />
+            <button type="submit" class="px-5 py-2.5 rounded-xl bg-coffee-800 text-cream-100 font-medium hover:bg-coffee-600 transition">新增項目</button>
+          </form>
+
+          <!-- Categories Grid -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+            ${appData.packing.map((cat, cIdx) => `
+              <div class="bg-white rounded-3xl p-5 border border-cream-300 shadow-journal space-y-3">
+                <h3 class="font-bold text-sm text-coffee-800 pb-2 border-b border-cream-200 flex items-center justify-between">
+                  <span>${cat.category}</span>
+                  <span class="text-xs font-normal text-coffee-400">${cat.items.filter(i => i.done).length}/${cat.items.length}</span>
+                </h3>
+                <div class="space-y-2">
+                  ${cat.items.map((item, iIdx) => `
+                    <div class="flex items-center justify-between gap-2 group">
+                      <label class="flex items-start gap-2.5 cursor-pointer flex-1 py-1">
+                        <input type="checkbox" ${item.done ? 'checked' : ''} onchange="togglePacking(${cIdx}, ${iIdx})" class="mt-0.5 w-4 h-4 rounded accent-coffee-800 cursor-pointer" />
+                        <span class="text-xs leading-relaxed transition ${item.done ? 'line-through text-coffee-400' : 'text-coffee-800'}">${item.text}</span>
+                      </label>
+                      ${editMode ? `
+                        <button onclick="deletePacking(${cIdx}, ${iIdx})" class="text-xs text-red-500 hover:underline px-1">刪除</button>
+                      ` : ''}
+                    </div>
+                  `).join('')}
+                </div>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      `;
+    }
+
+    // =========================================================================
+    // 12. PAGE 8: SHOPPING LIST (旅遊購物清單)
+    // =========================================================================
+    function renderShopping() {
+      const rate = Number(appData.budget.exchangeRate) || 0.215;
+      const spots = ['美麗海水族館', '名護星巴克', '美國村', 'Sport Depo 豐崎店', 'PARCO CITY', '壺屋陶器街', '國際通', '其他'];
+      
+      let totalEstTWD = 0;
+      appData.shopping.forEach(s => {
+        const val = Number(s.price) || 0;
+        totalEstTWD += s.currency === 'JPY' ? Math.round(val * rate) : Math.round(val);
+      });
+
+      // Group by spot
+      const grouped = {};
+      appData.shopping.forEach(item => {
+        if (!grouped[item.spot]) grouped[item.spot] = [];
+        grouped[item.spot].push(item);
+      });
+
+      return `
+        <div class="fade-in space-y-6">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div>
+              <div class="text-xs tracking-[0.2em] text-coffee-400 font-serif">SHOPPING WISHLIST</div>
+              <h1 class="text-2xl sm:text-3xl font-bold text-coffee-800">依景點分類購物清單</h1>
+            </div>
+            <div class="bg-white px-4 py-2.5 rounded-2xl border border-cream-300 shadow-xs text-xs text-coffee-700">
+              預估採買總額：<strong class="font-serif text-base text-coffee-800">NT$ ${totalEstTWD.toLocaleString()}</strong>
+            </div>
+          </div>
+
+          <!-- Add Shopping Item -->
+          <form onsubmit="addShoppingItem(event)" class="bg-white rounded-3xl p-5 border border-cream-300 shadow-journal grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-2.5 text-xs">
+            <select id="shopSpot" class="px-3 py-2.5 rounded-xl bg-cream-100 border border-cream-300 text-coffee-800">
+              ${spots.map(s => `<option value="${s}">${s}</option>`).join('')}
+            </select>
+            <input id="shopName" type="text" required placeholder="想買的品項名稱..." class="lg:col-span-2 px-3 py-2.5 rounded-xl bg-cream-100 border border-cream-300 text-coffee-800" />
+            <div class="flex gap-1.5">
+              <select id="shopCurr" class="px-2 py-2.5 rounded-xl bg-cream-100 border border-cream-300 text-coffee-800">
+                <option value="JPY">JPY ¥</option>
+                <option value="TWD">TWD $</option>
+              </select>
+              <input id="shopPrice" type="number" placeholder="預估金額" class="w-full px-3 py-2.5 rounded-xl bg-cream-100 border border-cream-300 text-coffee-800" />
+            </div>
+            <input id="shopNote" type="text" placeholder="備註（尺寸/口味）" class="px-3 py-2.5 rounded-xl bg-cream-100 border border-cream-300 text-coffee-800" />
+            <button type="submit" class="px-4 py-2.5 rounded-xl bg-coffee-800 text-cream-100 font-medium hover:bg-coffee-600 transition">加入清單</button>
+          </form>
+
+          <!-- Grouped Shopping Cards -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+            ${Object.keys(grouped).map(spot => `
+              <div class="bg-white rounded-3xl p-5 border border-cream-300 shadow-journal space-y-3">
+                <div class="flex items-center justify-between pb-2 border-b border-cream-200">
+                  <span class="font-bold text-sm text-coffee-800 flex items-center gap-1.5">
+                    <i data-lucide="map-pin" class="w-3.5 h-3.5 text-cblue-600"></i>
+                    <span>${spot}</span>
+                  </span>
+                  <span class="text-xs text-coffee-400">${grouped[spot].filter(i => i.bought).length}/${grouped[spot].length} 已購入</span>
+                </div>
+
+                <div class="space-y-2.5">
+                  ${grouped[spot].map(item => `
+                    <div class="flex items-center justify-between gap-2 p-2.5 rounded-2xl bg-cream-100/70 border border-cream-300/60">
+                      <label class="flex items-start gap-2.5 cursor-pointer flex-1">
+                        <input type="checkbox" ${item.bought ? 'checked' : ''} onchange="toggleShopping('${item.id}')" class="mt-0.5 w-4 h-4 rounded accent-coffee-800 cursor-pointer" />
+                        <div>
+                          <div class="text-xs font-medium ${item.bought ? 'line-through text-coffee-400' : 'text-coffee-800'}">${item.name}</div>
+                          ${item.note ? `<div class="text-[11px] text-coffee-500">${item.note}</div>` : ''}
+                        </div>
+                      </label>
+                      <div class="flex items-center gap-2 shrink-0">
+                        ${item.price ? `<span class="font-serif text-xs font-semibold text-coffee-700">${item.currency === 'JPY' ? '¥' : 'NT$'}${Number(item.price).toLocaleString()}</span>` : ''}
+                        <button onclick="deleteShopping('${item.id}')" class="p-1 text-coffee-400 hover:text-red-600">
+                          <i data-lucide="x" class="w-3.5 h-3.5"></i>
+                        </button>
+                      </div>
+                    </div>
+                  `).join('')}
+                </div>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      `;
+    }
+
+    // =========================================================================
+    // 13. PAGE 9: WEATHER INFO (沖繩各旅遊地區即時天氣與氣候指南)
+    // =========================================================================
+    function renderWeather() {
+      return `
+        <div class="fade-in space-y-6">
+          <div>
+            <div class="text-xs tracking-[0.2em] text-coffee-400 font-serif">OKINAWA WEATHER</div>
+            <h1 class="text-2xl sm:text-3xl font-bold text-coffee-800">沖繩旅遊地區天氣與穿搭指南</h1>
+            <p class="text-xs text-coffee-600 mt-1">即時串接 Open-Meteo 氣象資料（那霸市、恩納／讀谷、名護／本部古宇利），並提供日本氣象廳官方預報連結。</p>
+          </div>
+
+          <!-- Live Weather Grid -->
+          <div id="liveWeatherGrid" class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="bg-white rounded-3xl p-6 border border-cream-300 text-center text-xs text-coffee-500">正在載入沖繩即時天氣...</div>
+          </div>
+
+          <!-- Late November Climate Advice -->
+          <div class="bg-cblue-100/60 rounded-3xl p-6 border border-cblue-400/40 space-y-3">
+            <h2 class="font-bold text-base text-coffee-800 flex items-center gap-2">
+              <i data-lucide="wind" class="w-4 h-4 text-cblue-600"></i>
+              <span>11/28 — 12/02 沖繩初冬氣候特徵（無降雪・海風涼爽）</span>
+            </h2>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs text-coffee-700 leading-relaxed">
+              <div class="bg-white/90 p-4 rounded-2xl border border-cream-300">
+                <strong class="text-coffee-800 block mb-1">🌡️ 氣溫舒適（約 18°C – 23°C）</strong>
+                沖繩屬於亞熱帶氣候，11月底不會下雪，白天有陽光時穿薄長袖非常舒服，早晚微涼。
+              </div>
+              <div class="bg-white/90 p-4 rounded-2xl border border-cream-300">
+                <strong class="text-coffee-800 block mb-1">🌬️ 東北季風體感較涼</strong>
+                北部的古宇利島、名護海邊以及南部的瀨長島海風較強，建議隨身攜帶防風外套或薄針織衫。
+              </div>
+              <div class="bg-white/90 p-4 rounded-2xl border border-cream-300">
+                <strong class="text-coffee-800 block mb-1">☔ 短暫陣雨備案</strong>
+                海島天氣變化較快，包包放一把折疊傘即可；若遇陣雨可彈性調整至 PARCO CITY 或國際通逛街。
+              </div>
+            </div>
+          </div>
+
+          <!-- Official Reliable Weather Links -->
+          <div class="bg-white rounded-3xl p-6 border border-cream-300 shadow-journal space-y-4">
+            <h3 class="font-bold text-sm text-coffee-800">官方即時氣象與警報查詢連結（出發前一週精準確認）</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+              <a href="https://www.jma.go.jp/bosai/forecast/#area_type=offices&area_code=471000" target="_blank" rel="noopener noreferrer" class="p-4 rounded-2xl bg-cream-100 hover:bg-cblue-100 border border-cream-300 flex items-center justify-between transition">
+                <div>
+                  <div class="font-bold text-coffee-800">日本氣象廳 (JMA) 沖繩本島</div>
+                  <div class="text-[11px] text-coffee-500 mt-0.5">最權威一週天氣預報與氣象警報</div>
+                </div>
+                <i data-lucide="external-link" class="w-4 h-4 text-cblue-600"></i>
+              </a>
+
+              <a href="https://tenki.jp/forecast/10/50/" target="_blank" rel="noopener noreferrer" class="p-4 rounded-2xl bg-cream-100 hover:bg-cblue-100 border border-cream-300 flex items-center justify-between transition">
+                <div>
+                  <div class="font-bold text-coffee-800">tenki.jp 沖繩縣天氣</div>
+                  <div class="text-[11px] text-coffee-500 mt-0.5">含每小時降雨機率、風速與服裝指數</div>
+                </div>
+                <i data-lucide="external-link" class="w-4 h-4 text-cblue-600"></i>
+              </a>
+
+              <a href="https://www.accuweather.com/zh/jp/naha-shi/225038/weather-forecast/225038" target="_blank" rel="noopener noreferrer" class="p-4 rounded-2xl bg-cream-100 hover:bg-cblue-100 border border-cream-300 flex items-center justify-between transition">
+                <div>
+                  <div class="font-bold text-coffee-800">AccuWeather 那霸預報</div>
+                  <div class="text-[11px] text-coffee-500 mt-0.5">繁體中文介面、體感溫度參考</div>
+                </div>
+                <i data-lucide="external-link" class="w-4 h-4 text-cblue-600"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    async function fetchLiveWeather() {
+      const grid = document.getElementById('liveWeatherGrid');
+      if (!grid) return;
+
+      const locations = [
+        { name: '那霸市 (Naha)', sub: 'Day 1, 4, 5 住宿與市區', lat: 26.2124, lon: 127.6809 },
+        { name: '恩納 / 讀谷村 (Onna)', sub: 'Day 3 琉球村・BANTA CAFE', lat: 26.4981, lon: 127.8529 },
+        { name: '名護 / 美麗海・古宇利', sub: 'Day 2 北部自駕重點區域', lat: 26.5915, lon: 127.9773 }
+      ];
+
+      function decodeWMO(code) {
+        if (code === 0) return '晴朗無雲 ☀️';
+        if (code <= 3) return '多雲時晴 ⛅';
+        if (code <= 48) return '有霧 / 薄霧 🌫️';
+        if (code <= 67) return '陣雨 / 小雨 🌦️';
+        if (code <= 82) return '局部陣雨 🌧️';
+        return '雷陣雨 ⛈️';
+      }
+
+      try {
+        const results = await Promise.all(locations.map(async loc => {
+          const url = `https://api.open-meteo.com/v1/forecast?latitude=${loc.lat}&longitude=${loc.lon}&current=temperature_2m,precipitation,weather_code,wind_speed_10m&daily=precipitation_probability_max&timezone=Asia%2FTokyo&forecast_days=1`;
+          const res = await fetch(url);
+          if (!res.ok) throw new Error('Weather API error');
+          const data = await res.json();
+          return { loc, data };
+        }));
+
+        grid.innerHTML = results.map(({ loc, data }) => {
+          const cur = data.current;
+          const rainProb = data.daily?.precipitation_probability_max?.[0] ?? 0;
+          return `
+            <div class="bg-white rounded-3xl p-5 border border-cream-300 shadow-journal space-y-3">
+              <div class="flex items-start justify-between">
+                <div>
+                  <h3 class="font-bold text-base text-coffee-800">${loc.name}</h3>
+                  <div class="text-[11px] text-coffee-500">${loc.sub}</div>
+                </div>
+                <span class="px-2.5 py-1 rounded-full bg-cblue-100 text-coffee-800 text-xs font-medium">即時觀測</span>
+              </div>
+              <div class="flex items-baseline justify-between pt-2">
+                <div class="font-serif text-4xl font-bold text-coffee-800">${Math.round(cur.temperature_2m)}°C</div>
+                <div class="text-sm font-medium text-coffee-700">${decodeWMO(cur.weather_code)}</div>
+              </div>
+              <div class="pt-3 border-t border-cream-200 grid grid-cols-2 gap-2 text-xs text-coffee-600">
+                <div>降雨機率：<strong>${rainProb}%</strong></div>
+                <div>目前風速：<strong>${cur.wind_speed_10m} km/h</strong></div>
+              </div>
+            </div>
+          `;
+        }).join('');
+      } catch (err) {
+        grid.innerHTML = `
+          <div class="md:col-span-3 bg-white rounded-3xl p-6 border border-cream-300 text-xs text-coffee-600 text-center">
+            目前無法連線取得即時氣象 API 資料，請直接點擊下方「日本氣象廳 (JMA)」或「tenki.jp」查看最新官方預報。
+          </div>
+        `;
+      }
+    }
+
+    // =========================================================================
+    // 14. INTERACTIVE CRUD HANDLERS & MODALS
+    // =========================================================================
+    function openModal(html) {
+      const backdrop = document.getElementById('modalBackdrop');
+      const box = document.getElementById('modalBox');
+      box.innerHTML = html;
+      backdrop.classList.remove('hidden');
+      lucide.createIcons();
+    }
+
+    function closeModal() {
+      document.getElementById('modalBackdrop').classList.add('hidden');
+    }
+
+    // --- Edit Home Meta ---
+    function openEditMetaModal() {
+      const m = appData.meta;
+      openModal(`
+        <h3 class="text-lg font-bold text-coffee-800 mb-4">編輯首頁主視覺與旅行簡介</h3>
+        <form onsubmit="saveMetaModal(event)" class="space-y-3 text-xs">
+          <div>
+            <label class="block text-coffee-600 mb-1">網站主標題</label>
+            <input id="mTitle" type="text" value="${m.title}" class="w-full px-3 py-2 rounded-xl bg-white border border-cream-300" />
+          </div>
+          <div>
+            <label class="block text-coffee-600 mb-1">副標題</label>
+            <input id="mSub" type="text" value="${m.subtitle}" class="w-full px-3 py-2 rounded-xl bg-white border border-cream-300" />
+          </div>
+          <div>
+            <label class="block text-coffee-600 mb-1">主視覺封面圖片網址</label>
+            <input id="mHero" type="url" value="${m.heroImage}" class="w-full px-3 py-2 rounded-xl bg-white border border-cream-300" />
+          </div>
+          <div>
+            <label class="block text-coffee-600 mb-1">旅行簡介文字</label>
+            <textarea id="mIntro" rows="4" class="w-full px-3 py-2 rounded-xl bg-white border border-cream-300">${m.intro}</textarea>
+          </div>
+          <div class="flex justify-end gap-2 pt-2">
+            <button type="button" onclick="closeModal()" class="px-4 py-2 rounded-full border border-cream-300">取消</button>
+            <button type="submit" class="px-4 py-2 rounded-full bg-coffee-800 text-cream-100">儲存變更</button>
+          </div>
+        </form>
+      `);
+    }
+
+    function saveMetaModal(e) {
+      e.preventDefault();
+      appData.meta.title = document.getElementById('mTitle').value;
+      appData.meta.subtitle = document.getElementById('mSub').value;
+      appData.meta.heroImage = document.getElementById('mHero').value;
+      appData.meta.intro = document.getElementById('mIntro').value;
+      saveData('已更新首頁資訊');
+      closeModal();
+      render();
+    }
+
+    // --- Add/Delete Notices ---
+    function openAddNoticeModal() {
+      openModal(`
+        <h3 class="text-lg font-bold text-coffee-800 mb-4">新增行前確認提醒</h3>
+        <form onsubmit="saveNoticeModal(event)" class="space-y-3 text-xs">
+          <div>
+            <label class="block text-coffee-600 mb-1">提醒類型</label>
+            <select id="nType" class="w-full px-3 py-2 rounded-xl bg-white border border-cream-300">
+              <option value="info">📌 一般重要提醒</option>
+              <option value="conflict">⚠️ 行程時間核對</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-coffee-600 mb-1">標題</label>
+            <input id="nTitle" type="text" required class="w-full px-3 py-2 rounded-xl bg-white border border-cream-300" />
+          </div>
+          <div>
+            <label class="block text-coffee-600 mb-1">內容說明</label>
+            <textarea id="nDetail" rows="3" required class="w-full px-3 py-2 rounded-xl bg-white border border-cream-300"></textarea>
+          </div>
+          <div class="flex justify-end gap-2 pt-2">
+            <button type="button" onclick="closeModal()" class="px-4 py-2 rounded-full border border-cream-300">取消</button>
+            <button type="submit" class="px-4 py-2 rounded-full bg-coffee-800 text-cream-100">新增</button>
+          </div>
+        </form>
+      `);
+    }
+
+    function saveNoticeModal(e) {
+      e.preventDefault();
+      appData.notices.push({
+        id: 'n' + Date.now(),
+        type: document.getElementById('nType').value,
+        title: document.getElementById('nTitle').value,
+        detail: document.getElementById('nDetail').value
+      });
+      saveData('已新增提醒事項');
+      closeModal();
+      render();
+    }
+
+    function deleteNotice(idx) {
+      appData.notices.splice(idx, 1);
+      saveData('已刪除提醒');
+      render();
+    }
+
+    // --- Add/Edit/Delete Itinerary Items ---
+    function openItineraryItemModal(dayNum, itemId = null) {
+      const dayObj = appData.days.find(d => d.day === dayNum);
+      const existing = itemId ? dayObj.items.find(i => i.id === itemId) : null;
+
+      openModal(`
+        <h3 class="text-lg font-bold text-coffee-800 mb-4">${existing ? '編輯行程項目' : `新增 DAY ${dayNum} 行程`}</h3>
+        <form onsubmit="saveItineraryItem(event, ${dayNum}, '${itemId || ''}')" class="space-y-3 text-xs">
+          <div class="grid grid-cols-2 gap-2">
+            <div>
+              <label class="block text-coffee-600 mb-1">時間（如 14:30）</label>
+              <input id="itTime" type="text" required value="${existing ? existing.time : ''}" class="w-full px-3 py-2 rounded-xl bg-white border border-cream-300" />
+            </div>
+            <div>
+              <label class="block text-coffee-600 mb-1">分類標籤</label>
+              <input id="itCat" type="text" required value="${existing ? existing.category : '景點'}" class="w-full px-3 py-2 rounded-xl bg-white border border-cream-300" />
+            </div>
+          </div>
+          <div>
+            <label class="block text-coffee-600 mb-1">景點 / 餐廳名稱</label>
+            <input id="itTitle" type="text" required value="${existing ? existing.title : ''}" class="w-full px-3 py-2 rounded-xl bg-white border border-cream-300" />
+          </div>
+          <div>
+            <label class="block text-coffee-600 mb-1">簡介說明</label>
+            <textarea id="itDesc" rows="3" required class="w-full px-3 py-2 rounded-xl bg-white border border-cream-300">${existing ? existing.description : ''}</textarea>
+          </div>
+          <div class="grid grid-cols-2 gap-2">
+            <div>
+              <label class="block text-coffee-600 mb-1">交通時間說明</label>
+              <input id="itTransit" type="text" value="${existing ? existing.transit : ''}" class="w-full px-3 py-2 rounded-xl bg-white border border-cream-300" />
+            </div>
+            <div>
+              <label class="block text-coffee-600 mb-1">預計停留時間</label>
+              <input id="itStay" type="text" value="${existing ? existing.stay : ''}" class="w-full px-3 py-2 rounded-xl bg-white border border-cream-300" />
+            </div>
+          </div>
+          <div>
+            <label class="block text-coffee-600 mb-1">地址</label>
+            <input id="itAddr" type="text" value="${existing ? existing.address : ''}" class="w-full px-3 py-2 rounded-xl bg-white border border-cream-300" />
+          </div>
+          <div>
+            <label class="block text-coffee-600 mb-1">推薦餐點 / 購物 / 備註</label>
+            <input id="itFood" type="text" value="${existing ? existing.foodOrShop : ''}" class="w-full px-3 py-2 rounded-xl bg-white border border-cream-300" />
+          </div>
+          <div>
+            <label class="block text-coffee-600 mb-1">照片網址</label>
+            <input id="itImg" type="url" value="${existing ? existing.image : 'https://images.unsplash.com/photo-1542051841857-5f90071e7989?auto=format&fit=crop&w=900&q=80'}" class="w-full px-3 py-2 rounded-xl bg-white border border-cream-300" />
+          </div>
+          <div class="flex justify-end gap-2 pt-2">
+            <button type="button" onclick="closeModal()" class="px-4 py-2 rounded-full border border-cream-300">取消</button>
+            <button type="submit" class="px-4 py-2 rounded-full bg-coffee-800 text-cream-100">儲存行程</button>
+          </div>
+        </form>
+      `);
+    }
+
+    function saveItineraryItem(e, dayNum, itemId) {
+      e.preventDefault();
+      const dayObj = appData.days.find(d => d.day === dayNum);
+      const payload = {
+        id: itemId || ('it-' + Date.now()),
+        time: document.getElementById('itTime').value,
+        category: document.getElementById('itCat').value,
+        title: document.getElementById('itTitle').value,
+        description: document.getElementById('itDesc').value,
+        transit: document.getElementById('itTransit').value,
+        stay: document.getElementById('itStay').value,
+        address: document.getElementById('itAddr').value,
+        foodOrShop: document.getElementById('itFood').value,
+        image: document.getElementById('itImg').value,
+        mapQuery: document.getElementById('itTitle').value
+      };
+
+      if (itemId) {
+        const idx = dayObj.items.findIndex(i => i.id === itemId);
+        if (idx !== -1) dayObj.items[idx] = payload;
+      } else {
+        dayObj.items.push(payload);
+        dayObj.items.sort((a, b) => a.time.localeCompare(b.time));
+      }
+      saveData('已更新行程內容');
+      closeModal();
+      render();
+    }
+
+    function deleteItineraryItem(dayNum, itemId) {
+      const dayObj = appData.days.find(d => d.day === dayNum);
+      dayObj.items = dayObj.items.filter(i => i.id !== itemId);
+      saveData('已刪除行程項目');
+      render();
+    }
+
+    // --- Add/Edit/Delete Restaurants ---
+    function openRestaurantModal(restId = null) {
+      const existing = restId ? appData.restaurants.find(r => r.id === restId) : null;
+      openModal(`
+        <h3 class="text-lg font-bold text-coffee-800 mb-4">${existing ? '編輯餐廳資訊' : '新增推薦餐廳'}</h3>
+        <form onsubmit="saveRestaurant(event, '${restId || ''}')" class="space-y-3 text-xs">
+          <div class="grid grid-cols-2 gap-2">
+            <div>
+              <label class="block text-coffee-600 mb-1">所屬天數</label>
+              <select id="rDay" class="w-full px-3 py-2 rounded-xl bg-white border border-cream-300">
+                ${['DAY 1', 'DAY 2', 'DAY 3', 'DAY 4', 'DAY 5'].map(d => `<option value="${d}" ${existing?.dayTag === d ? 'selected' : ''}>${d}</option>`).join('')}
+              </select>
+            </div>
+            <div>
+              <label class="block text-coffee-600 mb-1">地區（如 那霸・國際通）</label>
+              <input id="rArea" type="text" required value="${existing ? existing.area : ''}" class="w-full px-3 py-2 rounded-xl bg-white border border-cream-300" />
+            </div>
+          </div>
+          <div>
+            <label class="block text-coffee-600 mb-1">餐廳名稱</label>
+            <input id="rName" type="text" required value="${existing ? existing.name : ''}" class="w-full px-3 py-2 rounded-xl bg-white border border-cream-300" />
+          </div>
+          <div class="grid grid-cols-2 gap-2">
+            <div>
+              <label class="block text-coffee-600 mb-1">營業時間</label>
+              <input id="rHours" type="text" value="${existing ? existing.hours : '待確認'}" class="w-full px-3 py-2 rounded-xl bg-white border border-cream-300" />
+            </div>
+            <div>
+              <label class="block text-coffee-600 mb-1">公休日</label>
+              <input id="rClosed" type="text" value="${existing ? existing.closed : '待確認'}" class="w-full px-3 py-2 rounded-xl bg-white border border-cream-300" />
+            </div>
+          </div>
+          <div class="grid grid-cols-2 gap-2">
+            <div>
+              <label class="block text-coffee-600 mb-1">價格區間</label>
+              <input id="rPrice" type="text" value="${existing ? existing.price : '¥1,000 – ¥2,000'}" class="w-full px-3 py-2 rounded-xl bg-white border border-cream-300" />
+            </div>
+            <div>
+              <label class="block text-coffee-600 mb-1">距離當日景點時間</label>
+              <input id="rDist" type="text" value="${existing ? existing.distance : ''}" class="w-full px-3 py-2 rounded-xl bg-white border border-cream-300" />
+            </div>
+          </div>
+          <div>
+            <label class="block text-coffee-600 mb-1">推薦餐點</label>
+            <input id="rDishes" type="text" required value="${existing ? existing.dishes : ''}" class="w-full px-3 py-2 rounded-xl bg-white border border-cream-300" />
+          </div>
+          <div>
+            <label class="block text-coffee-600 mb-1">餐廳照片網址</label>
+            <input id="rImg" type="url" value="${existing ? existing.image : 'https://images.unsplash.com/photo-1555126634-323283e090fa?auto=format&fit=crop&w=800&q=80'}" class="w-full px-3 py-2 rounded-xl bg-white border border-cream-300" />
+          </div>
+          <div class="flex justify-end gap-2 pt-2">
+            <button type="button" onclick="closeModal()" class="px-4 py-2 rounded-full border border-cream-300">取消</button>
+            <button type="submit" class="px-4 py-2 rounded-full bg-coffee-800 text-cream-100">儲存餐廳</button>
+          </div>
+        </form>
+      `);
+    }
+
+    function saveRestaurant(e, restId) {
+      e.preventDefault();
+      const payload = {
+        id: restId || ('r-' + Date.now()),
+        dayTag: document.getElementById('rDay').value,
+        area: document.getElementById('rArea').value,
+        name: document.getElementById('rName').value,
+        hours: document.getElementById('rHours').value,
+        closed: document.getElementById('rClosed').value,
+        price: document.getElementById('rPrice').value,
+        distance: document.getElementById('rDist').value,
+        dishes: document.getElementById('rDishes').value,
+        image: document.getElementById('rImg').value,
+        mapQuery: document.getElementById('rName').value
+      };
+      if (restId) {
+        const idx = appData.restaurants.findIndex(r => r.id === restId);
+        if (idx !== -1) appData.restaurants[idx] = payload;
+      } else {
+        appData.restaurants.push(payload);
+      }
+      saveData('已儲存餐廳資訊');
+      closeModal();
+      render();
+    }
+
+    function deleteRestaurant(restId) {
+      appData.restaurants = appData.restaurants.filter(r => r.id !== restId);
+      saveData('已刪除餐廳');
+      render();
+    }
+
+    // --- Budget CRUD ---
+    function updateBudgetMeta(field, val) {
+      appData.budget[field] = Number(val);
+      saveData('已更新預算設定');
+      render();
+    }
+
+    function addExpense(e) {
+      e.preventDefault();
+      appData.budget.expenses.unshift({
+        id: 'b-' + Date.now(),
+        category: document.getElementById('expCat').value,
+        title: document.getElementById('expTitle').value,
+        currency: document.getElementById('expCurr').value,
+        amount: Number(document.getElementById('expAmount').value),
+        payer: document.getElementById('expPayer').value,
+        note: document.getElementById('expNote').value
+      });
+      saveData('已新增支出紀錄');
+      render();
+    }
+
+    function openEditExpenseModal(id) {
+      const item = appData.budget.expenses.find(e => e.id === id);
+      if (!item) return;
+      const categories = ['機票', '租車', '住宿', 'ETC／高速公路費', '油錢', '餐飲', '購物', '景點門票', '其他支出'];
+      openModal(`
+        <h3 class="text-lg font-bold text-coffee-800 mb-4">修改支出紀錄</h3>
+        <form onsubmit="saveEditedExpense(event, '${id}')" class="space-y-3 text-xs">
+          <div>
+            <label class="block text-coffee-600 mb-1">分類</label>
+            <select id="eCat" class="w-full px-3 py-2 rounded-xl bg-white border border-cream-300">
+              ${categories.map(c => `<option value="${c}" ${item.category === c ? 'selected' : ''}>${c}</option>`).join('')}
+            </select>
+          </div>
+          <div>
+            <label class="block text-coffee-600 mb-1">項目名稱</label>
+            <input id="eTitle" type="text" required value="${item.title}" class="w-full px-3 py-2 rounded-xl bg-white border border-cream-300" />
+          </div>
+          <div class="grid grid-cols-2 gap-2">
+            <div>
+              <label class="block text-coffee-600 mb-1">幣別</label>
+              <select id="eCurr" class="w-full px-3 py-2 rounded-xl bg-white border border-cream-300">
+                <option value="JPY" ${item.currency === 'JPY' ? 'selected' : ''}>JPY ¥</option>
+                <option value="TWD" ${item.currency === 'TWD' ? 'selected' : ''}>TWD $</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-coffee-600 mb-1">金額</label>
+              <input id="eAmt" type="number" step="any" required value="${item.amount}" class="w-full px-3 py-2 rounded-xl bg-white border border-cream-300" />
+            </div>
+          </div>
+          <div>
+            <label class="block text-coffee-600 mb-1">付款人</label>
+            <select id="ePayer" class="w-full px-3 py-2 rounded-xl bg-white border border-cream-300">
+              ${['我付款', '寶寶付款', '共同分攤'].map(p => `<option value="${p}" ${item.payer === p ? 'selected' : ''}>${p}</option>`).join('')}
+            </select>
+          </div>
+          <div>
+            <label class="block text-coffee-600 mb-1">備註</label>
+            <input id="eNote" type="text" value="${item.note || ''}" class="w-full px-3 py-2 rounded-xl bg-white border border-cream-300" />
+          </div>
+          <div class="flex justify-end gap-2 pt-2">
+            <button type="button" onclick="closeModal()" class="px-4 py-2 rounded-full border border-cream-300">取消</button>
+            <button type="submit" class="px-4 py-2 rounded-full bg-coffee-800 text-cream-100">儲存修改</button>
+          </div>
+        </form>
+      `);
+    }
+
+    function saveEditedExpense(e, id) {
+      e.preventDefault();
+      const idx = appData.budget.expenses.findIndex(x => x.id === id);
+      if (idx !== -1) {
+        appData.budget.expenses[idx] = {
+          id,
+          category: document.getElementById('eCat').value,
+          title: document.getElementById('eTitle').value,
+          currency: document.getElementById('eCurr').value,
+          amount: Number(document.getElementById('eAmt').value),
+          payer: document.getElementById('ePayer').value,
+          note: document.getElementById('eNote').value
+        };
+      }
+      saveData('已更新支出紀錄');
+      closeModal();
+      render();
+    }
+
+    function deleteExpense(id) {
+      appData.budget.expenses = appData.budget.expenses.filter(x => x.id !== id);
+      saveData('已刪除支出紀錄');
+      render();
+    }
+
+    // --- Photo Upload (Canvas compression for clean localStorage persistence) & Lightbox ---
+    function openUploadPhotoModal() {
+      openModal(`
+        <h3 class="text-lg font-bold text-coffee-800 mb-4">上傳旅行照片至手帳相簿</h3>
+        <form onsubmit="handlePhotoUpload(event)" class="space-y-3 text-xs">
+          <div>
+            <label class="block text-coffee-600 mb-1">選擇照片檔案（手機相簿或電腦照片）</label>
+            <input id="photoFile" type="file" accept="image/*" required class="w-full px-3 py-2 rounded-xl bg-white border border-cream-300" />
+          </div>
+          <div>
+            <label class="block text-coffee-600 mb-1">分類天數</label>
+            <select id="photoDay" class="w-full px-3 py-2 rounded-xl bg-white border border-cream-300">
+              <option value="DAY 1">DAY 1 (11/28 那霸初夜)</option>
+              <option value="DAY 2">DAY 2 (11/29 水族館・古宇利島)</option>
+              <option value="DAY 3">DAY 3 (11/30 琉球村・瀨長島)</option>
+              <option value="DAY 4">DAY 4 (12/01 波上宮・PARCO CITY)</option>
+              <option value="DAY 5">DAY 5 (12/02 壺屋陶器街・國際通)</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-coffee-600 mb-1">手帳文字記錄</label>
+            <input id="photoCaption" type="text" required placeholder="寫下這一刻的心情或地點..." class="w-full px-3 py-2 rounded-xl bg-white border border-cream-300" />
+          </div>
+          <div class="flex justify-end gap-2 pt-2">
+            <button type="button" onclick="closeModal()" class="px-4 py-2 rounded-full border border-cream-300">取消</button>
+            <button type="submit" class="px-4 py-2 rounded-full bg-coffee-800 text-cream-100">確認上傳</button>
+          </div>
+        </form>
+      `);
+    }
+
+    function handlePhotoUpload(e) {
+      e.preventDefault();
+      const fileInput = document.getElementById('photoFile');
+      const file = fileInput.files[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = function(evt) {
+        const img = new Image();
+        img.onload = function() {
+          // Compress image to max 900px width so localStorage holds many photos reliably
+          const canvas = document.createElement('canvas');
+          const maxW = 900;
+          const scale = Math.min(1, maxW / img.width);
+          canvas.width = img.width * scale;
+          canvas.height = img.height * scale;
+          const ctx = canvas.getContext('2d');
+          ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+          const compressedDataUrl = canvas.toDataURL('image/jpeg', 0.78);
+
+          const dayVal = document.getElementById('photoDay').value;
+          const dateMap = { 'DAY 1': '2026.11.28', 'DAY 2': '2026.11.29', 'DAY 3': '2026.11.30', 'DAY 4': '2026.12.01', 'DAY 5': '2026.12.02' };
+
+          appData.photos.unshift({
+            id: 'p-' + Date.now(),
+            day: dayVal,
+            caption: document.getElementById('photoCaption').value,
+            url: compressedDataUrl,
+            date: dateMap[dayVal] || ''
+          });
+          saveData('照片已收藏至手帳相簿');
+          closeModal();
+          render();
+        };
+        img.src = evt.target.result;
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function openLightbox(photoId) {
+      const p = appData.photos.find(x => x.id === photoId);
+      if (!p) return;
+      openModal(`
+        <div class="space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="font-serif text-xs font-bold text-cblue-600">${p.day} • ${p.date || ''}</span>
+            <button onclick="closeModal()" class="p-1 text-coffee-600"><i data-lucide="x" class="w-4 h-4"></i></button>
+          </div>
+          <img src="${p.url}" alt="${p.caption}" class="w-full max-h-[65vh] object-contain rounded-2xl bg-cream-200" />
+          <p class="text-sm text-coffee-800 text-center pt-1">${p.caption}</p>
+        </div>
+      `);
+    }
+
+    function deletePhoto(photoId) {
+      appData.photos = appData.photos.filter(p => p.id !== photoId);
+      saveData('已移除照片');
+      render();
+    }
+
+    // --- Packing Checklist CRUD ---
+    function togglePacking(cIdx, iIdx) {
+      appData.packing[cIdx].items[iIdx].done = !appData.packing[cIdx].items[iIdx].done;
+      saveData('已更新清單勾選狀態');
+      render();
+    }
+
+    function addPackingItem(e) {
+      e.preventDefault();
+      const cIdx = Number(document.getElementById('packCatSelect').value);
+      const text = document.getElementById('packItemInput').value.trim();
+      if (!text) return;
+      appData.packing[cIdx].items.push({
+        id: 'pk-' + Date.now(),
+        text,
+        done: false
+      });
+      saveData('已新增行李項目');
+      render();
+    }
+
+    function deletePacking(cIdx, iIdx) {
+      appData.packing[cIdx].items.splice(iIdx, 1);
+      saveData('已刪除項目');
+      render();
+    }
+
+    // --- Shopping List CRUD ---
+    function addShoppingItem(e) {
+      e.preventDefault();
+      appData.shopping.push({
+        id: 's-' + Date.now(),
+        spot: document.getElementById('shopSpot').value,
+        name: document.getElementById('shopName').value,
+        currency: document.getElementById('shopCurr').value,
+        price: Number(document.getElementById('shopPrice').value) || 0,
+        note: document.getElementById('shopNote').value,
+        bought: false
+      });
+      saveData('已新增購物清單');
+      render();
+    }
+
+    function toggleShopping(id) {
+      const item = appData.shopping.find(s => s.id === id);
+      if (item) item.bought = !item.bought;
+      saveData('已更新購物狀態');
+      render();
+    }
+
+    function deleteShopping(id) {
+      appData.shopping = appData.shopping.filter(s => s.id !== id);
+      saveData('已刪除購物項目');
+      render();
+    }
+
+    // --- Share & JSON Backup Modal (For sharing with Boyfriend) ---
+    function openBackupModal() {
+      openModal(`
+        <div class="space-y-4 text-xs">
+          <div class="flex items-center justify-between">
+            <h3 class="text-lg font-bold text-coffee-800">分享與資料備份</h3>
+            <button onclick="closeModal()" class="p-1 text-coffee-600"><i data-lucide="x" class="w-4 h-4"></i></button>
+          </div>
+          <p class="text-coffee-600 leading-relaxed">
+            您在網站上修改的行程、記帳與清單都會自動儲存在此裝置瀏覽器中。若想將更新後的最新進度同步給男朋友，可點擊下方「匯出行程檔案」傳送給他匯入！
+          </p>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+            <button onclick="exportJsonFile()" class="flex items-center justify-center gap-2 py-3 px-4 rounded-2xl bg-coffee-800 text-cream-100 font-medium hover:bg-coffee-600 transition">
+              <i data-lucide="download" class="w-4 h-4"></i>
+              <span>匯出最新資料 (.json)</span>
+            </button>
+            <label class="flex items-center justify-center gap-2 py-3 px-4 rounded-2xl bg-cblue-200/80 text-coffee-800 font-medium hover:bg-cblue-400/50 transition cursor-pointer">
+              <i data-lucide="upload" class="w-4 h-4"></i>
+              <span>匯入對方傳來的檔案</span>
+              <input type="file" accept=".json" onchange="importJsonFile(event)" class="hidden" />
+            </label>
+          </div>
+          <div class="pt-3 border-t border-cream-200 flex justify-between items-center">
+            <span class="text-coffee-400">需要恢復為最初 PDF 版本？</span>
+            <button onclick="resetToDefault()" class="text-red-600 underline">重設為預設行程</button>
+          </div>
+        </div>
+      `);
+    }
+
+    function exportJsonFile() {
+      const dataStr = JSON.stringify(appData, null, 2);
+      const blob = new Blob([dataStr], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'Okinawa_Travel_Journal_2026.json';
+      a.click();
+      URL.revokeObjectURL(url);
+      showToast('已下載備份檔案，可直接傳給寶寶！');
+    }
+
+    function importJsonFile(e) {
+      const file = e.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = function(evt) {
+        try {
+          const parsed = JSON.parse(evt.target.result);
+          if (parsed && parsed.days && parsed.budget) {
+            appData = parsed;
+            saveData('已成功匯入最新旅行資料！');
+            closeModal();
+            render();
+          } else {
+            showToast('檔案格式不正確');
+          }
+        } catch (err) {
+          showToast('無法讀取該檔案');
+        }
+      };
+      reader.readAsText(file);
+    }
+
+    function resetToDefault() {
+      appData = JSON.parse(JSON.stringify(DEFAULT_DATA));
+      saveData('已恢復為原始 PDF 行程資料');
+      closeModal();
+      render();
+    }
+
+    // =========================================================================
+    // 15. INITIALIZE APP
+    // =========================================================================
+    window.addEventListener('DOMContentLoaded', () => {
+      updateNavHighlight();
+      render();
+    });
+  </script>
+</body>
+</html>
